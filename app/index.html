@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PHP2Shell Impact Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an incident status board. Advisory strip, status tallies that double as filters, then a searchable ledger of organisations. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --fg: #141a24;
+  --muted: #5a6475;
+  --line: #d9dee7;
+  --accent: #2343b8;
+  --accent-soft: #e4e9fb;
+
+  --s-offline: #c62828;   --s-offline-bg: #fde7e7;
+  --s-maint: #a15c00;     --s-maint-bg: #fdf0d8;
+  --s-disrupted: #b8461b; --s-disrupted-bg: #fbe8de;
+  --s-recovering: #0d6f8a;--s-recovering-bg: #dff1f6;
+  --s-risk: #8a2c9e;      --s-risk-bg: #f4e3f7;
+  --s-protected: #1e7a3c; --s-protected-bg: #e0f3e6;
+
+  --font-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1218; --surface: #161c25; --fg: #e6eaf1; --muted: #98a2b3; --line: #2a3340;
+    --accent: #8ea6ff; --accent-soft: #1d2747;
+    --s-offline: #ff8a80; --s-offline-bg: #3a1717;
+    --s-maint: #f2b85b; --s-maint-bg: #3a2a10;
+    --s-disrupted: #ff9e6e; --s-disrupted-bg: #3a2014;
+    --s-recovering: #6fd0ea; --s-recovering-bg: #0f2d36;
+    --s-risk: #e199f0; --s-risk-bg: #33173a;
+    --s-protected: #7bd897; --s-protected-bg: #12301c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1218; --surface: #161c25; --fg: #e6eaf1; --muted: #98a2b3; --line: #2a3340;
+  --accent: #8ea6ff; --accent-soft: #1d2747;
+  --s-offline: #ff8a80; --s-offline-bg: #3a1717;
+  --s-maint: #f2b85b; --s-maint-bg: #3a2a10;
+  --s-disrupted: #ff9e6e; --s-disrupted-bg: #3a2014;
+  --s-recovering: #6fd0ea; --s-recovering-bg: #0f2d36;
+  --s-risk: #e199f0; --s-risk-bg: #33173a;
+  --s-protected: #7bd897; --s-protected-bg: #12301c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.5 var(--font-body);
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+header { padding-block: 32px 20px; display: grid; gap: 14px; }
+.eyebrow {
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 8px 16px;
+}
+.eyebrow .cve { color: var(--s-offline); }
+h1 {
+  font: 700 clamp(30px, 5vw, 46px)/1.05 var(--font-display);
+  letter-spacing: -.02em; margin: 0; text-wrap: balance;
+}
+.lede { margin: 0; max-width: 65ch; color: var(--muted); font-size: 17px; }
+
+.advisory {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden;
+}
+.advisory > div { background: var(--surface); padding: 12px 14px; display: grid; gap: 4px; min-width: 0; }
+.advisory dt { font: 500 11px/1.2 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.advisory dd { margin: 0; font-size: 15px; }
+.advisory code { font: 500 14px var(--font-mono); }
+
+/* Status tallies */
+.tallies {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-block: 8px 20px;
+}
+@media (max-width: 860px) { .tallies { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 440px) { .tallies { grid-template-columns: repeat(2, 1fr); } }
+.tally {
+  all: unset; cursor: pointer; display: grid; gap: 2px;
+  padding: 10px 12px; border-radius: 6px; background: var(--surface);
+  border: 1px solid var(--line); border-top: 4px solid var(--c);
+}
+.tally:hover { border-color: var(--c); }
+.tally[aria-pressed="true"] { background: var(--cbg); border-color: var(--c); }
+.tally:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tally .n { font: 600 28px/1 var(--font-display); font-variant-numeric: tabular-nums; color: var(--c); }
+.tally .l { font-size: 13px; color: var(--fg); font-weight: 600; }
+.tally .d { font-size: 12px; color: var(--muted); line-height: 1.3; }
+
+/* Controls */
+.controls { display: grid; gap: 12px; margin-bottom: 14px; }
+.search { position: relative; }
+.search input {
+  width: 100%; font: 17px var(--font-body); color: var(--fg);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+  padding: 12px 14px 12px 40px;
+}
+.search input:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+.search svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--muted); fill: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chips .label { font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.chip {
+  all: unset; cursor: pointer; font-size: 14px; padding: 4px 11px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg);
+}
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chip .ct { font: 12px var(--font-mono); opacity: .7; margin-left: 4px; }
+
+.resultbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.resultbar button { all: unset; cursor: pointer; color: var(--accent); }
+.resultbar button:focus-visible { outline: 2px solid var(--accent); }
+
+/* Ledger */
+.ledger { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.row {
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr) auto; gap: 6px 20px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--c);
+  border-radius: 6px; padding: 14px 16px; align-items: start;
+}
+@media (max-width: 720px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .row .note { grid-column: 1 / -1; } .row .pill { grid-row: 1; grid-column: 2; } }
+.row .who { display: grid; gap: 2px; min-width: 0; }
+.row .name { font: 600 17px/1.25 var(--font-display); }
+.row .meta { font: 12.5px var(--font-mono); color: var(--muted); overflow-wrap: anywhere; }
+.row .note { font-size: 15px; min-width: 0; }
+.row .note .src { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.row .note .src a { color: var(--muted); }
+.pill {
+  font: 500 12px/1 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+  padding: 6px 9px; border-radius: 4px; background: var(--cbg); color: var(--c); justify-self: end;
+}
+.flag { font: 500 11px var(--font-mono); color: var(--s-maint); text-transform: uppercase; letter-spacing: .06em; }
+
+.empty {
+  background: var(--surface); border: 1px dashed var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 8px;
+}
+.empty h3 { margin: 0; font: 600 19px var(--font-display); }
+.empty p { margin: 0; max-width: 65ch; }
+
+/* Status colour binding */
+[data-s="offline"] { --c: var(--s-offline); --cbg: var(--s-offline-bg); }
+[data-s="maintenance"] { --c: var(--s-maint); --cbg: var(--s-maint-bg); }
+[data-s="disrupted"] { --c: var(--s-disrupted); --cbg: var(--s-disrupted-bg); }
+[data-s="recovering"] { --c: var(--s-recovering); --cbg: var(--s-recovering-bg); }
+[data-s="at-risk"] { --c: var(--s-risk); --cbg: var(--s-risk-bg); }
+[data-s="protected"] { --c: var(--s-protected); --cbg: var(--s-protected-bg); }
+
+/* Version checker */
+.checker {
+  margin-block: 36px 12px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px;
+}
+@media (max-width: 720px) { .checker { grid-template-columns: 1fr; } }
+.checker h2 { margin: 0 0 6px; font: 600 22px/1.2 var(--font-display); text-wrap: balance; }
+.checker p { margin: 0; color: var(--muted); max-width: 65ch; }
+.checker form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.checker input {
+  font: 500 17px var(--font-mono); width: 9em; padding: 10px 12px; color: var(--fg);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+}
+.checker button {
+  font: 600 15px var(--font-body); padding: 10px 16px; border-radius: 6px; border: 0;
+  background: var(--accent); color: var(--surface); cursor: pointer;
+}
+.verdict { margin-top: 12px; padding: 12px 14px; border-radius: 6px; background: var(--cbg); color: var(--fg); border-left: 4px solid var(--c); }
+.verdict strong { color: var(--c); }
+
+footer { padding-block: 24px 40px; color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
+footer p { margin: 0; max-width: 80ch; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">
+      <span class="cve">CVE-2026-109618</span>
+      <span class="cve">CVE-2026-109619</span>
+      <span>CVSS 9.2 · Unauthenticated RCE</span>
+      <span>Snapshot: 21 Oct 2026</span>
+    </div>
+    <h1>PHP2Shell Impact Tracker</h1>
+    <p class="lede">Which websites went dark, which are under emergency maintenance, and which platforms are still exposed to the two critical PHP flaws. Search for a company or filter by business category.</p>
+    <dl class="advisory">
+      <div><dt>Fixed in</dt><dd><code>8.5.12 · 8.4.27 · 8.3.36 · 8.2.35</code></dd></div>
+      <div><dt>No official fix</dt><dd>PHP 8.1 and older. Rely on distro backports or upgrade.</dd></div>
+      <div><dt>Affected setups</dt><dd>PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed</dd></div>
+      <div><dt>After patching</dt><dd>Restart PHP-FPM or Apache. Serve HTTP 503 while down.</dd></div>
+    </dl>
+  </header>
+
+  <main>
+    <div class="tallies" id="tallies" role="group" aria-label="Filter by status"></div>
+
+    <div class="controls">
+      <label class="search" for="q">
+        <span hidden>Search companies or websites</span>
+        <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <input id="q" type="search" placeholder="Search a company or website, e.g. Nintendo or gog.com" autocomplete="off">
+      </label>
+      <div class="chips" id="cats" role="group" aria-label="Filter by business category"></div>
+    </div>
+
+    <div class="resultbar">
+      <span id="count" aria-live="polite"></span>
+      <button type="button" id="reset" hidden>Clear filters</button>
+    </div>
+    <ul class="ledger" id="ledger"></ul>
+
+    <section class="checker" aria-labelledby="chk-h">
+      <div>
+        <h2 id="chk-h">Not on the list? Check your PHP version</h2>
+        <p>This tracker only covers organisations named in news reports. Any site running an unpatched PHP build is exposed, whatever framework or CMS sits on top. Ask your host which PHP version serves your site, or run <code>php -v</code> on the server.</p>
+      </div>
+      <div>
+        <form id="vform">
+          <label for="ver" hidden>PHP version</label>
+          <input id="ver" inputmode="decimal" placeholder="8.3.14" value="8.3.14" autocomplete="off">
+          <button type="submit">Check version</button>
+        </form>
+        <div class="verdict" id="verdict" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Statuses come from public reporting on 21 October 2026, the day the patches shipped. Sites change state quickly. A site marked offline may already be back, and one not listed may still be vulnerable. Each entry links to its source.</p>
+    <p>"At risk" means the software or group was named in advisories as exploitable through PHP2Shell. It does not mean a specific site has been breached.</p>
+  </footer>
+</div>
+
+<script>
+const STATUSES = {
+  "offline":     { label: "Offline",      desc: "Taken down as a precaution" },
+  "maintenance": { label: "Maintenance",  desc: "Emergency maintenance window" },
+  "disrupted":   { label: "Disrupted",    desc: "Some services pulled or down" },
+  "recovering":  { label: "Recovering",   desc: "Patching, coming back online" },
+  "at-risk":     { label: "At risk",      desc: "Exposed until PHP is patched" },
+  "protected":   { label: "Protected",    desc: "Patched, shielded or not PHP" }
+};
+
+const SRC = {
+  record:    ["The Record", "https://therecord.media/php-script-vulnerabilities-warnings"],
+  htg:       ["How-To Geek", "https://www.howtogeek.com/your-favorite-websites-are-down-due-to-an-internet-breaking-security-failure/"],
+  pillitteri:["Pasquale Pillitteri", "https://pasqualepillitteri.it/en/news/26110/php2shell-netherlands-finland-switch-off-government-sites-before-patch"],
+  patchstack:["Patchstack", "https://patchstack.com/articles/php-major-vulnerability-alert-10-2026/"],
+  outof:     ["Out of Games", "https://outof.games/news/10188-why-half-your-favourite-gaming-sites-were-down-today-php2shell-explained/"],
+  talkesport:["TalkEsport", "https://www.talkesport.com/news/php-vulnerability-gaming-esports-websites-offline/"],
+  gigazine:  ["GIGAZINE", "https://gigazine.net/gsc_news/en/20261021-php-php2shell-maintenance/"],
+  techzine:  ["Techzine", "https://www.techzine.eu/blogs/security/145168/php-shuts-the-internet-why-php2shell-affects-every-company/"],
+  trending:  ["Trending Topics", "https://www.trendingtopics.eu/php2shell-security-flaw-austria/"],
+  martincid: ["Martin Cid Magazine", "https://www.martincid.com/technology-sv/php2shell-php-patch-wordpress-sites-host/"],
+  cybernews: ["Cybernews", "https://cybernews.com/security/wordpress-php-severe-rce-flaws-emergency-patches/"],
+  sansec:    ["Sansec", "https://sansec.io/research/php2shell"],
+  invnews:   ["InvestmentNews", "https://www.investmentnews.com/fintech/global-website-alert-over-flaw-puts-advisor-websites-and-client-portals-at-risk-as-attacks-begin/268686"],
+  pbx:       ["PBX Science", "https://pbxscience.com/why-japans-prime-minister-urged-everyone-to-patch-php-tonight-inside-the-php2shell-emergency/"],
+  helpnet:   ["Help Net Security", "https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/"]
+};
+
+// name, domain, category, country, status, note, source key, unconfirmed?
+const SITES = [
+  // Government
+  ["MijnOverheid", "mijnoverheid.nl", "Government", "Netherlands", "offline", "Citizen portal for government mail and records pulled offline before the patch.", "record"],
+  ["Tweede Kamer", "tweedekamer.nl", "Government", "Netherlands", "offline", "Dutch House of Representatives website taken offline.", "record"],
+  ["NCSC Netherlands", "ncsc.nl", "Government", "Netherlands", "offline", "National Cyber Security Centre site taken offline as a precaution.", "record"],
+  ["Autoriteit Persoonsgegevens", "autoriteitpersoonsgegevens.nl", "Government", "Netherlands", "offline", "Dutch data protection authority site taken offline.", "record"],
+  ["DigiD", "digid.nl", "Government", "Netherlands", "disrupted", "National digital ID login service reported as affected.", "patchstack"],
+  ["NotuBiz council portals", "notubiz.nl", "Government", "Netherlands", "offline", "Municipal council meeting portals run by NotuBiz reported offline.", "pillitteri"],
+  ["Finnish government websites", "", "Government", "Finland", "offline", "Several government sites switched off ahead of the patch.", "pillitteri"],
+  ["French local government sites", "", "Government", "France", "offline", "Local authority sites temporarily disconnected.", "pillitteri"],
+  ["Austrian government agencies", "", "Government", "Austria", "offline", "Agencies pulled sites offline while waiting for fixes.", "record"],
+  // Education
+  ["Universität Wien", "univie.ac.at", "Education", "Austria", "offline", "Systems offline; the university plans to install the update as soon as it is available.", "trending"],
+  ["Dutch higher-education systems", "", "Education", "Netherlands", "offline", "Various university and college systems reported offline.", "record"],
+  ["Austrian universities", "", "Education", "Austria", "offline", "Several universities took websites down as a precaution.", "record"],
+  ["Danish school communication platform", "", "Education", "Denmark", "disrupted", "The national school communication platform was affected.", "patchstack"],
+  // Media & forums
+  ["ANP", "anp.nl", "News & Media", "Netherlands", "disrupted", "Some systems at the Dutch national news agency taken offline.", "pillitteri"],
+  ["Tweakers", "tweakers.net", "News & Media", "Netherlands", "disrupted", "Dutch tech news site reported as affected.", "patchstack"],
+  ["Something Awful", "somethingawful.com", "Forums & Communities", "United States", "offline", "Forums taken offline as a protective measure.", "htg"],
+  ["4chan", "4chan.org", "Forums & Communities", "United States", "offline", "Reported among sites taken down.", "htg"],
+  // Reference
+  ["Wikipedia / Wikimedia", "wikipedia.org", "Reference & Wikis", "Global", "disrupted", "Wikimedia shut down a number of support services and parts of Wikipedia went down. Beware fake \"mirror\" links.", "htg"],
+  ["Bulbapedia", "bulbapedia.bulbagarden.net", "Reference & Wikis", "Global", "offline", "Pokémon wiki taken offline.", "outof"],
+  ["Yugipedia", "yugipedia.com", "Reference & Wikis", "Global", "offline", "Yu-Gi-Oh! wiki taken offline.", "outof"],
+  ["Liquipedia", "liquipedia.net", "Gaming & Esports", "Global", "offline", "Esports wiki was down for users. It runs on MediaWiki (PHP) but has not confirmed the cause.", "talkesport", true],
+  // Gaming
+  ["Nintendo", "nintendo.com", "Gaming & Esports", "Japan", "offline", "Took many services offline while addressing the bugs.", "outof"],
+  ["GOG", "gog.com", "Gaming & Esports", "Poland", "offline", "Game store reported outages.", "htg"],
+  // Japan platforms
+  ["pixiv", "pixiv.net", "Creative Platforms", "Japan", "maintenance", "Emergency maintenance expected to run until early 22 October.", "gigazine"],
+  ["niconico", "nicovideo.jp", "Creative Platforms", "Japan", "maintenance", "Video platform in emergency maintenance for the PHP patch.", "gigazine"],
+  ["DMM", "dmm.com", "Creative Platforms", "Japan", "maintenance", "Emergency maintenance across services.", "gigazine"],
+  ["BASE", "thebase.com", "E-commerce & Retail", "Japan", "maintenance", "Online shop builder in emergency maintenance; storefronts on it affected.", "gigazine"],
+  ["Japanese banks (some)", "", "Finance", "Japan", "disrupted", "Kyodo News reported some banks suspended certain online services.", "pbx"],
+  // Business software
+  ["Asana", "asana.com", "Business Software", "United States", "offline", "Work management app reported outages.", "htg"],
+  ["BambooHR", "bamboohr.com", "Business Software", "United States", "offline", "Reported to have shut down service in the US, Canada and Ireland. Only one outlet reported this.", "htg", true],
+  // Retail
+  ["Picnic", "picnic.app", "E-commerce & Retail", "Netherlands", "protected", "Dutch online grocer stayed up. Its ordering systems do not run on PHP.", "pillitteri"],
+  // Hosting
+  ["Anexia", "anexia.com", "Hosting & Infrastructure", "Austria", "recovering", "Rolled out patched PHP and brought systems back gradually. About two-thirds were running by early evening.", "trending"],
+  ["Kinsta", "kinsta.com", "Hosting & Infrastructure", "United States", "protected", "Temporary protections rolled out; patched PHP follows once validated.", "martincid"],
+  ["cPanel (EasyApache 4)", "cpanel.net", "Hosting & Infrastructure", "United States", "protected", "Fixed PHP builds shipped within minutes of the advisory. Hosts still need to install them and restart PHP.", "martincid"],
+  ["WordPress.com", "wordpress.com", "Hosting & Infrastructure", "Global", "protected", "Automattic says WordPress.com sites are already protected; no customer action needed.", "cybernews"],
+  ["WordPress VIP", "wpvip.com", "Hosting & Infrastructure", "Global", "protected", "Automattic says VIP sites are already protected.", "cybernews"],
+  ["WP Cloud", "wp.cloud", "Hosting & Infrastructure", "Global", "protected", "Automattic says WP Cloud sites are already protected.", "cybernews"],
+  ["Pressable", "pressable.com", "Hosting & Infrastructure", "Global", "protected", "Automattic says Pressable sites are already protected.", "cybernews"],
+  // At-risk platforms named in advisories
+  ["Self-hosted WordPress sites", "wordpress.org", "Software Platforms", "Global", "at-risk", "Exploitable until the host patches PHP. About 35% of WordPress sites run a PHP version that no longer gets official fixes.", "cybernews"],
+  ["Drupal sites", "drupal.org", "Software Platforms", "Global", "at-risk", "Named by Sansec as reachable for unauthenticated code execution.", "sansec"],
+  ["Joomla sites", "joomla.org", "Software Platforms", "Global", "at-risk", "Named by Sansec as reachable for unauthenticated code execution.", "sansec"],
+  ["Magento / Adobe Commerce stores", "magento.com", "E-commerce & Retail", "Global", "at-risk", "Online stores on Magento named as exploitable. Card-skimming risk if compromised.", "sansec"],
+  ["MediaWiki installs", "mediawiki.org", "Software Platforms", "Global", "at-risk", "The wiki engine behind most fan and community wikis.", "sansec"],
+  ["Roundcube webmail", "roundcube.net", "Software Platforms", "Global", "at-risk", "Webmail used by many hosts and organisations.", "sansec"],
+  ["phpMyAdmin", "phpmyadmin.net", "Hosting & Infrastructure", "Global", "at-risk", "Database admin panel common on shared hosting.", "sansec"],
+  ["Nextcloud", "nextcloud.com", "Business Software", "Global", "at-risk", "Self-hosted file sharing named as exploitable.", "sansec"],
+  ["WHMCS", "whmcs.com", "Hosting & Infrastructure", "Global", "at-risk", "Billing and client portal software used by web hosts.", "sansec"],
+  ["Laravel and Symfony apps", "laravel.com", "Software Platforms", "Global", "at-risk", "Custom apps built on these frameworks are exposed through PHP itself.", "sansec"],
+  ["Financial advisor websites & client portals", "", "Finance", "United States", "at-risk", "Industry press warns advisor sites and client portals on PHP need their providers to patch.", "invnews"],
+  ["Sites on PHP 8.1 or older", "", "Software Platforms", "Global", "at-risk", "No official PHP fix. Only distro backports (Debian, Ubuntu, RHEL) or an upgrade will close the hole.", "helpnet"]
+].map(([name, domain, category, country, status, note, src, unconfirmed]) => ({ name, domain, category, country, status, note, src, unconfirmed: !!unconfirmed }));
+
+const CATEGORIES = [...new Set(SITES.map(s => s.category))].sort();
+const state = { q: "", cat: null, status: null };
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const norm = s => s.toLowerCase().replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/.*$/, "").trim();
+
+function matches(s, ignore) {
+  if (ignore !== "status" && state.status && s.status !== state.status) return false;
+  if (ignore !== "cat" && state.cat && s.category !== state.cat) return false;
+  if (state.q) {
+    const q = norm(state.q);
+    const hay = [s.name, s.domain, s.category, s.country].join(" ").toLowerCase();
+    if (!hay.includes(q) && !(s.domain && q.endsWith(s.domain))) return false;
+  }
+  return true;
+}
+
+function renderTallies() {
+  $("tallies").innerHTML = Object.entries(STATUSES).map(([k, v]) => {
+    const n = SITES.filter(s => s.status === k && matches(s, "status")).length;
+    return `<button class="tally" data-s="${k}" aria-pressed="${state.status === k}">
+      <span class="n">${n}</span><span class="l">${v.label}</span><span class="d">${v.desc}</span></button>`;
+  }).join("");
+}
+
+function renderCats() {
+  const btn = (val, label) => {
+    const n = SITES.filter(s => (!val || s.category === val) && matches(s, "cat")).length;
+    return `<button class="chip" data-cat="${val ? esc(val) : ""}" aria-pressed="${state.cat === val}">${esc(label)}<span class="ct">${n}</span></button>`;
+  };
+  $("cats").innerHTML = `<span class="label">Category</span>` + btn(null, "All") + CATEGORIES.map(c => btn(c, c)).join("");
+}
+
+function renderLedger() {
+  const rows = SITES.filter(s => matches(s))
+    .sort((a, b) => Object.keys(STATUSES).indexOf(a.status) - Object.keys(STATUSES).indexOf(b.status) || a.name.localeCompare(b.name));
+  $("count").textContent = `${rows.length} of ${SITES.length} entries`;
+  $("reset").hidden = !(state.q || state.cat || state.status);
+
+  if (!rows.length) {
+    const q = esc(state.q);
+    $("ledger").innerHTML = `<li class="empty">
+      <h3>${q ? `No reports found for “${q}”` : "No entries match these filters"}</h3>
+      <p>${q ? "That doesn’t mean the site is safe. This tracker only lists organisations named in news coverage. If the site runs on PHP, check its PHP version below or ask its hosting provider whether it has been patched." : "Try another category or clear the status filter."}</p>
+    </li>`;
+    return;
+  }
+  $("ledger").innerHTML = rows.map(s => {
+    const [srcName, srcUrl] = SRC[s.src];
+    const meta = [s.domain, s.category, s.country].filter(Boolean).map(esc).join(" · ");
+    return `<li class="row" data-s="${s.status}">
+      <div class="who"><span class="name">${esc(s.name)}</span><span class="meta">${meta}</span>
+        ${s.unconfirmed ? `<span class="flag">Unconfirmed</span>` : ""}</div>
+      <div class="note">${esc(s.note)}<span class="src">Source: <a href="${srcUrl}" target="_blank" rel="noopener">${srcName}</a></span></div>
+      <span class="pill">${STATUSES[s.status].label}</span>
+    </li>`;
+  }).join("");
+}
+
+function render() { renderTallies(); renderCats(); renderLedger(); }
+
+$("tallies").addEventListener("click", e => {
+  const b = e.target.closest(".tally"); if (!b) return;
+  state.status = state.status === b.dataset.s ? null : b.dataset.s; render();
+});
+$("cats").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  const v = b.dataset.cat || null;
+  state.cat = state.cat === v ? null : v; render();
+});
+$("q").addEventListener("input", e => { state.q = e.target.value.trim(); render(); });
+$("reset").addEventListener("click", () => { state.q = ""; state.cat = null; state.status = null; $("q").value = ""; render(); });
+
+// PHP version checker
+const FIXED = { "8.2": 35, "8.3": 36, "8.4": 27, "8.5": 12 };
+function checkVersion(raw) {
+  const m = raw.trim().match(/^(\d+)\.(\d+)(?:\.(\d+))?/);
+  if (!m) return { s: "disrupted", t: "Enter a version like <strong>8.3.14</strong>. Run <code>php -v</code> to find yours." };
+  const [maj, min, patch] = [+m[1], +m[2], m[3] === undefined ? null : +m[3]];
+  const branch = `${maj}.${min}`;
+  if (maj > 8 || (maj === 8 && min > 5)) return { s: "protected", t: `<strong>PHP ${esc(raw.trim())} is newer than the affected branches.</strong> Confirm against the official PHP advisory.` };
+  if (!(branch in FIXED)) return { s: "offline", t: `<strong>Vulnerable, with no official fix.</strong> PHP ${branch} no longer gets security releases. Upgrade to a supported branch, or confirm your Linux distribution has shipped a backported patch.` };
+  if (patch === null) return { s: "disrupted", t: `Add the patch number. PHP ${branch} is fixed from <strong>${branch}.${FIXED[branch]}</strong>.` };
+  if (patch >= FIXED[branch]) return { s: "protected", t: `<strong>Patched.</strong> PHP ${branch}.${patch} includes the PHP2Shell fixes. Make sure PHP-FPM or Apache was restarted after the update.` };
+  return { s: "offline", t: `<strong>Vulnerable.</strong> Update to PHP ${branch}.${FIXED[branch]} or later, then restart PHP-FPM or Apache. Distro packages may carry the fix under a different version number.` };
+}
+function showVerdict() {
+  const v = checkVersion($("ver").value);
+  $("verdict").dataset.s = v.s; $("verdict").innerHTML = v.t;
+}
+$("vform").addEventListener("submit", e => { e.preventDefault(); showVerdict(); });
+
+render(); showVerdict();
+</script>
+</body>
+</html>
