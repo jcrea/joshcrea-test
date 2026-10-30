@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-10-30T13:31:00Z",
-  "updated": "2026-10-30T13:31:00Z",
+  "checked": "2026-10-30T18:39:00Z",
+  "updated": "2026-10-30T18:39:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -146,6 +146,14 @@ window.PHP2SHELL_DATA = {
     "bleepingkev": {
       "name": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/"
+    },
+    "thnpalo": {
+      "name": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html"
+    },
+    "tuxcare": {
+      "name": "TuxCare",
+      "url": "https://tuxcare.com/blog/php2shell-cve/"
     }
   },
   "sites": [
@@ -608,8 +616,8 @@ window.PHP2SHELL_DATA = {
       "category": "Software Platforms",
       "country": "Global",
       "status": "at-risk",
-      "note": "No official PHP fix, and CISA confirmed active exploitation on 26 Oct. Only distro backports (Debian, Ubuntu, RHEL) or an upgrade will close the hole.",
-      "source": "bleepingkev"
+      "note": "No official PHP fix, and CISA confirmed active exploitation on 26 Oct. Commercial backports now cover PHP 5.2 to 8.1 (e.g. TuxCare), as do some Linux distributions; otherwise upgrade.",
+      "source": "tuxcare"
     },
     {
       "name": "Nepal government websites",
@@ -646,8 +654,8 @@ window.PHP2SHELL_DATA = {
       "category": "Hosting & Infrastructure",
       "country": "United States",
       "status": "at-risk",
-      "note": "Management web interface affected in all listed releases. Hotfixes out for 10.2.18-h13, 11.1.16-h4 and 11.2.10-h16 by 25 Oct; others expected 27-30 Oct. Restrict management access to trusted IPs meanwhile.",
-      "source": "brandefense"
+      "note": "All PAN-OS and Panorama versions affected. On 29 Oct Palo Alto reported active exploitation against internet-exposed management interfaces. Patch and restrict management access to trusted IPs.",
+      "source": "thnpalo"
     },
     {
       "name": "Cloudflare",
