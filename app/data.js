@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-10-21T23:45:00Z",
-  "updated": "2026-10-21T23:45:00Z",
+  "checked": "2026-10-30T13:31:00Z",
+  "updated": "2026-10-30T13:31:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -62,6 +62,42 @@ window.PHP2SHELL_DATA = {
     "helpnet": {
       "name": "Help Net Security",
       "url": "https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/"
+    },
+    "hcamag": {
+      "name": "HCAMag",
+      "url": "https://www.hcamag.com/us/news/general/major-hr-system-goes-offline-as-critical-cyber-flaw-drives-wave-of-global-shutdowns/594457"
+    },
+    "liuyucheng": {
+      "name": "Liu Yu-Cheng (blog)",
+      "url": "https://blog.liu-yucheng.com/2026/10/21/php2shell-php-critical-rce-vulnerabilities/"
+    },
+    "intcyber": {
+      "name": "International Cyber Digest (X)",
+      "url": "https://x.com/IntCyberDigest/status/2112865804358205593"
+    },
+    "bitpage": {
+      "name": "Bitpage.de",
+      "url": "https://bitpage.de/en/php2shell-websites-offline-what-to-do/"
+    },
+    "startupfortune": {
+      "name": "Startup Fortune",
+      "url": "https://startupfortune.com/finland-pulls-government-websites-offline-over-critical-php-flaws/"
+    },
+    "kathmandupost": {
+      "name": "The Kathmandu Post",
+      "url": "https://kathmandupost.com/science-technology/2026/10/26/most-nepal-government-websites-back-online-after-php2shell-flaw"
+    },
+    "yahootech": {
+      "name": "Yahoo Tech",
+      "url": "https://tech.yahoo.com/cybersecurity/articles/php-security-crisis-heres-full-115844759.html"
+    },
+    "trendingey": {
+      "name": "Trending Topics",
+      "url": "https://www.trendingtopics.eu/php2shell-europe-report-risikomonitor-ey/"
+    },
+    "bleepingkev": {
+      "name": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-confirms-php2shell-vulnerabilities-now-exploited-in-attacks/"
     }
   },
   "sites": [
@@ -125,8 +161,8 @@ window.PHP2SHELL_DATA = {
       "category": "Government",
       "country": "Finland",
       "status": "offline",
-      "note": "Several government sites switched off ahead of the patch.",
-      "source": "pillitteri"
+      "note": "State IT centre Valtori shut down public-facing central government web services. No restoration report found yet.",
+      "source": "startupfortune"
     },
     {
       "name": "French local government sites",
@@ -142,18 +178,19 @@ window.PHP2SHELL_DATA = {
       "domain": "",
       "category": "Government",
       "country": "Austria",
-      "status": "offline",
-      "note": "Agencies pulled sites offline while waiting for fixes.",
-      "source": "record"
+      "status": "recovering",
+      "note": "A tracker of Austrian sites reported none still offline as of 23 Oct.",
+      "source": "bitpage"
     },
     {
       "name": "Universität Wien",
       "domain": "univie.ac.at",
       "category": "Education",
       "country": "Austria",
-      "status": "offline",
-      "note": "Systems offline; the university plans to install the update as soon as it is available.",
-      "source": "trending"
+      "status": "recovering",
+      "note": "Took websites, webmail, Moodle and u:cloud offline. Austrian sites were reported back by 23 Oct, but the university's own return was not named.",
+      "source": "bitpage",
+      "unconfirmed": true
     },
     {
       "name": "Dutch higher-education systems",
@@ -169,9 +206,9 @@ window.PHP2SHELL_DATA = {
       "domain": "",
       "category": "Education",
       "country": "Austria",
-      "status": "offline",
-      "note": "Several universities took websites down as a precaution.",
-      "source": "record"
+      "status": "recovering",
+      "note": "MedUni Wien and others were back by 23 Oct; a tracker knew of no Austrian site still offline.",
+      "source": "bitpage"
     },
     {
       "name": "Danish school communication platform",
@@ -214,9 +251,9 @@ window.PHP2SHELL_DATA = {
       "domain": "4chan.org",
       "category": "Forums & Communities",
       "country": "United States",
-      "status": "offline",
-      "note": "Reported among sites taken down.",
-      "source": "htg"
+      "status": "disrupted",
+      "note": "Went read-only on 21 Oct while awaiting the PHP security update, rather than fully offline. No report yet of full service returning.",
+      "source": "intcyber"
     },
     {
       "name": "Wikipedia / Wikimedia",
@@ -224,8 +261,8 @@ window.PHP2SHELL_DATA = {
       "category": "Reference & Wikis",
       "country": "Global",
       "status": "disrupted",
-      "note": "Wikimedia shut down a number of support services and parts of Wikipedia went down. Beware fake \"mirror\" links.",
-      "source": "htg"
+      "note": "The main site stayed readable, but support services such as Toolforge were still unavailable on 23 Oct. Beware fake \"mirror\" links.",
+      "source": "yahootech"
     },
     {
       "name": "Bulbapedia",
@@ -278,9 +315,9 @@ window.PHP2SHELL_DATA = {
       "domain": "pixiv.net",
       "category": "Creative Platforms",
       "country": "Japan",
-      "status": "maintenance",
-      "note": "Emergency maintenance expected to run until early 22 October.",
-      "source": "gigazine"
+      "status": "recovering",
+      "note": "pixiv said its emergency maintenance ended at 23:30 JST on 21 Oct.",
+      "source": "liuyucheng"
     },
     {
       "name": "niconico",
@@ -332,10 +369,9 @@ window.PHP2SHELL_DATA = {
       "domain": "bamboohr.com",
       "category": "Business Software",
       "country": "United States",
-      "status": "offline",
-      "note": "Reported to have shut down service in the US, Canada and Ireland. Only one outlet reported this.",
-      "source": "htg",
-      "unconfirmed": true
+      "status": "protected",
+      "note": "Back online at 12:01 p.m. MT on 21 Oct after applying and validating security updates. No sign customer data was accessed.",
+      "source": "hcamag"
     },
     {
       "name": "Picnic",
@@ -514,8 +550,44 @@ window.PHP2SHELL_DATA = {
       "category": "Software Platforms",
       "country": "Global",
       "status": "at-risk",
-      "note": "No official PHP fix. Only distro backports (Debian, Ubuntu, RHEL) or an upgrade will close the hole.",
-      "source": "helpnet"
+      "note": "No official PHP fix, and CISA confirmed active exploitation on 26 Oct. Only distro backports (Debian, Ubuntu, RHEL) or an upgrade will close the hole.",
+      "source": "bleepingkev"
+    },
+    {
+      "name": "National Land Survey of Finland",
+      "domain": "maanmittauslaitos.fi",
+      "category": "Government",
+      "country": "Finland",
+      "status": "offline",
+      "note": "Went offline alongside central government services. No restoration report found yet.",
+      "source": "startupfortune"
+    },
+    {
+      "name": "Nepal government websites",
+      "domain": "",
+      "category": "Government",
+      "country": "Nepal",
+      "status": "recovering",
+      "note": "Thousands of sites on the shared GIWMS platform were patched centrally and are back; some portals were still inaccessible on 26 Oct.",
+      "source": "kathmandupost"
+    },
+    {
+      "name": "Cineplexx",
+      "domain": "cineplexx.at",
+      "category": "Entertainment",
+      "country": "Austria",
+      "status": "recovering",
+      "note": "Cinema chain's site was back online by 23 Oct.",
+      "source": "bitpage"
+    },
+    {
+      "name": "Unpatched European websites",
+      "domain": "",
+      "category": "Software Platforms",
+      "country": "Europe",
+      "status": "at-risk",
+      "note": "An EY and risikomonitor.com study found about 1.9 million European sites (5.6%) still vulnerable, with Germany slowest to patch.",
+      "source": "trendingey"
     }
   ]
 };
