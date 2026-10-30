@@ -59,17 +59,69 @@ window.PHP2SHELL_DATA = {
       "name": "PBX Science",
       "url": "https://pbxscience.com/why-japans-prime-minister-urged-everyone-to-patch-php-tonight-inside-the-php2shell-emergency/"
     },
+    "nos": {
+      "name": "NOS",
+      "url": "https://nos.nl/liveblog/2636066-mijnoverheid-en-digid-weer-online-wereldwijd-oproepen-om-beveiligingsupdate-te-installeren"
+    },
+    "liuyucheng": {
+      "name": "Liu Yucheng blog",
+      "url": "https://blog.liu-yucheng.com/2026/10/21/php2shell-php-critical-rce-vulnerabilities/"
+    },
+    "tucson": {
+      "name": "Tucson Spotlight",
+      "url": "https://www.tucsonspotlight.org/south-tucson-website-restored-after-global-php-flaw/"
+    },
     "helpnet": {
       "name": "Help Net Security",
       "url": "https://www.helpnetsecurity.com/2026/10/21/php2shell-php-vulnerabilities-patched-cve-2026-109618-cve-2026-109619/"
     },
+    "kathmandu": {
+      "name": "The Kathmandu Post",
+      "url": "https://kathmandupost.com/science-technology/2026/10/26/most-nepal-government-websites-back-online-after-php2shell-flaw"
+    },
+    "brandefense": {
+      "name": "Brandefense",
+      "url": "https://brandefense.io/security-news/palo-alto-php2shell-product-status-hotfix-dates/"
+    },
+    "cloudflare": {
+      "name": "Cloudflare Blog",
+      "url": "https://blog.cloudflare.com/php-vulnerabilities-waf-protection/"
+    },
+    "almalinux": {
+      "name": "AlmaLinux",
+      "url": "https://almalinux.org/blog/2026-10-21-php2shell-cve-2026-109618-cve-2026-109619/"
+    },
+    "nosGov": {
+      "name": "NOS",
+      "url": "https://nos.nl/artikel/2636196-overheidspagina-s-weer-online-na-php-lek-vooralsnog-geen-data-gelekt-of-gestolen"
+    },
+    "ovh": {
+      "name": "OVHcloud",
+      "url": "https://blog.ovhcloud.com/en/posts/php2shell-php-vulnerability-response/"
+    },
+    "qde": {
+      "name": "QDE",
+      "url": "https://qde.com/blog/php2shell-patch-php-servers"
+    },
+    "register": {
+      "name": "The Register",
+      "url": "https://www.theregister.com/cyber-crime/2026/10/27/cisa-confirms-php2shell-under-attack-as-researchers-clock-successful-exploits/5305681"
+    },
+    "rocket": {
+      "name": "Security Measures Lab",
+      "url": "https://rocket-boys.co.jp/security-measures-lab/php2shell-cve-2026-109618-19/"
+    },
+    "websoudan": {
+      "name": "Web Soudan",
+      "url": "https://web-soudan.co.jp/topics/7237/"
+    },
+    "variety": {
+      "name": "Iroiro Blog",
+      "url": "https://variety.hatenablog.com/entry/2026/10/22/121717"
+    },
     "hcamag": {
       "name": "HCAMag",
       "url": "https://www.hcamag.com/us/news/general/major-hr-system-goes-offline-as-critical-cyber-flaw-drives-wave-of-global-shutdowns/594457"
-    },
-    "liuyucheng": {
-      "name": "Liu Yu-Cheng (blog)",
-      "url": "https://blog.liu-yucheng.com/2026/10/21/php2shell-php-critical-rce-vulnerabilities/"
     },
     "intcyber": {
       "name": "International Cyber Digest (X)",
@@ -82,10 +134,6 @@ window.PHP2SHELL_DATA = {
     "startupfortune": {
       "name": "Startup Fortune",
       "url": "https://startupfortune.com/finland-pulls-government-websites-offline-over-critical-php-flaws/"
-    },
-    "kathmandupost": {
-      "name": "The Kathmandu Post",
-      "url": "https://kathmandupost.com/science-technology/2026/10/26/most-nepal-government-websites-back-online-after-php2shell-flaw"
     },
     "yahootech": {
       "name": "Yahoo Tech",
@@ -106,9 +154,9 @@ window.PHP2SHELL_DATA = {
       "domain": "mijnoverheid.nl",
       "category": "Government",
       "country": "Netherlands",
-      "status": "offline",
-      "note": "Citizen portal for government mail and records pulled offline before the patch.",
-      "source": "record"
+      "status": "recovering",
+      "note": "Citizen portal pulled offline before the patch; reported back online on the evening of 21 Oct. Patch status not stated.",
+      "source": "nos"
     },
     {
       "name": "Tweede Kamer",
@@ -142,9 +190,9 @@ window.PHP2SHELL_DATA = {
       "domain": "digid.nl",
       "category": "Government",
       "country": "Netherlands",
-      "status": "disrupted",
-      "note": "National digital ID login service reported as affected.",
-      "source": "patchstack"
+      "status": "recovering",
+      "note": "DigiD website reported back online on the evening of 21 Oct. Patch status not stated.",
+      "source": "nos"
     },
     {
       "name": "NotuBiz council portals",
@@ -342,9 +390,10 @@ window.PHP2SHELL_DATA = {
       "domain": "thebase.com",
       "category": "E-commerce & Retail",
       "country": "Japan",
-      "status": "maintenance",
-      "note": "Online shop builder in emergency maintenance; storefronts on it affected.",
-      "source": "gigazine"
+      "status": "recovering",
+      "note": "Listed as restored on 22 Oct after emergency maintenance. Single blog roundup; patch status not stated.",
+      "source": "variety",
+      "unconfirmed": true
     },
     {
       "name": "Japanese banks (some)",
@@ -372,6 +421,15 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Back online at 12:01 p.m. MT on 21 Oct after applying and validating security updates. No sign customer data was accessed.",
       "source": "hcamag"
+    },
+    {
+      "name": "City of South Tucson",
+      "domain": "",
+      "category": "Government",
+      "country": "United States",
+      "status": "recovering",
+      "note": "City website was down over 24 hours after its provider shut down services; restored Thursday 22 Oct afternoon.",
+      "source": "tucson"
     },
     {
       "name": "Picnic",
@@ -554,6 +612,176 @@ window.PHP2SHELL_DATA = {
       "source": "bleepingkev"
     },
     {
+      "name": "Nepal government websites",
+      "domain": "",
+      "category": "Government",
+      "country": "Nepal",
+      "status": "recovering",
+      "note": "Thousands of sites on the shared GIWMS platform were patched centrally and are back; some portals were still inaccessible on 26 Oct.",
+      "source": "kathmandu"
+    },
+    {
+      "name": "Nagarik App",
+      "domain": "",
+      "category": "Government",
+      "country": "Nepal",
+      "status": "offline",
+      "note": "Nepal's citizen services app still unavailable as of 26 Oct. Only one outlet reported this.",
+      "source": "kathmandu",
+      "unconfirmed": true
+    },
+    {
+      "name": "Medical Education Commission (Nepal)",
+      "domain": "",
+      "category": "Government",
+      "country": "Nepal",
+      "status": "offline",
+      "note": "Website still unavailable as of 26 Oct while most Nepali government portals returned. Only one outlet reported this.",
+      "source": "kathmandu",
+      "unconfirmed": true
+    },
+    {
+      "name": "Palo Alto Networks PAN-OS and Panorama",
+      "domain": "paloaltonetworks.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "Management web interface affected in all listed releases. Hotfixes out for 10.2.18-h13, 11.1.16-h4 and 11.2.10-h16 by 25 Oct; others expected 27-30 Oct. Restrict management access to trusted IPs meanwhile.",
+      "source": "brandefense"
+    },
+    {
+      "name": "Cloudflare",
+      "domain": "cloudflare.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "WAF rules for the exploit active on traffic through Cloudflare since 21 Oct; Pro and up should confirm the Managed Ruleset blocks. Stopgap only, PHP still needs patching.",
+      "source": "cloudflare"
+    },
+    {
+      "name": "AlmaLinux",
+      "domain": "almalinux.org",
+      "category": "Hosting & Infrastructure",
+      "country": "Global",
+      "status": "protected",
+      "note": "Patched PHP packages rolling out to production repositories for every PHP stream on AlmaLinux 8, 9 and 10.",
+      "source": "almalinux"
+    },
+    {
+      "name": "Overheid.nl",
+      "domain": "overheid.nl",
+      "category": "Government",
+      "country": "Netherlands",
+      "status": "recovering",
+      "note": "Among the last Dutch government sites restored, as reported 22 Oct. Patch status not stated.",
+      "source": "nosGov"
+    },
+    {
+      "name": "RIVM",
+      "domain": "rivm.nl",
+      "category": "Government",
+      "country": "Netherlands",
+      "status": "recovering",
+      "note": "Dutch public health institute site restored along with other late government sites, as reported 22 Oct.",
+      "source": "nosGov"
+    },
+    {
+      "name": "Mercari",
+      "domain": "mercari.com",
+      "category": "E-commerce & Retail",
+      "country": "Japan",
+      "status": "offline",
+      "note": "Reported still stopped on the afternoon of 22 Oct. Single blog roundup; may be out of date.",
+      "source": "variety",
+      "unconfirmed": true
+    },
+    {
+      "name": "MUFG Bank",
+      "domain": "bk.mufg.jp",
+      "category": "Finance",
+      "country": "Japan",
+      "status": "offline",
+      "note": "Reported still stopped on the afternoon of 22 Oct. Single blog roundup; may be out of date.",
+      "source": "variety",
+      "unconfirmed": true
+    },
+    {
+      "name": "Japan Meteorological Agency",
+      "domain": "jma.go.jp",
+      "category": "Government",
+      "country": "Japan",
+      "status": "offline",
+      "note": "Reported still stopped on the afternoon of 22 Oct. Single blog roundup; may be out of date.",
+      "source": "variety",
+      "unconfirmed": true
+    },
+    {
+      "name": "Lolipop!",
+      "domain": "lolipop.jp",
+      "category": "Hosting & Infrastructure",
+      "country": "Japan",
+      "status": "protected",
+      "note": "Applied fixes to all PHP series from 5.3 to 8.5 and reopened its site on 22 Oct around 13:00.",
+      "source": "rocket"
+    },
+    {
+      "name": "Xserver",
+      "domain": "xserver.ne.jp",
+      "category": "Hosting & Infrastructure",
+      "country": "Japan",
+      "status": "recovering",
+      "note": "Began restoring its sites from about 20:10 on 22 Oct; fixes for PHP 5.5 and older still being prepared then.",
+      "source": "websoudan",
+      "unconfirmed": true
+    },
+    {
+      "name": "ConoHa WING",
+      "domain": "conoha.jp",
+      "category": "Hosting & Infrastructure",
+      "country": "Japan",
+      "status": "protected",
+      "note": "Finished applying the security patch and ended emergency maintenance at 20:45 on 22 Oct.",
+      "source": "websoudan",
+      "unconfirmed": true
+    },
+    {
+      "name": "Sakura Internet",
+      "domain": "sakura.ad.jp",
+      "category": "Hosting & Infrastructure",
+      "country": "Japan",
+      "status": "protected",
+      "note": "Completed PHP updates for rental servers at 06:30 on 22 Oct.",
+      "source": "websoudan",
+      "unconfirmed": true
+    },
+    {
+      "name": "OVHcloud",
+      "domain": "ovhcloud.com",
+      "category": "Hosting & Infrastructure",
+      "country": "France",
+      "status": "protected",
+      "note": "Says it deployed fixes across its platform; shared-hosting customers need no action.",
+      "source": "ovh"
+    },
+    {
+      "name": "QDE",
+      "domain": "qde.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Global",
+      "status": "protected",
+      "note": "Patched its cPanel shared hosting, billing system and customer panel. VPS and dedicated customers must update and restart PHP themselves.",
+      "source": "qde"
+    },
+    {
+      "name": "Servers on unpatched PHP",
+      "domain": "",
+      "category": "Software Platforms",
+      "country": "Global",
+      "status": "at-risk",
+      "note": "Added to CISA's exploited-vulnerabilities list on 26 Oct, with a federal deadline of 29 Oct. Successful shell execution seen on honeypots running PHP 8.4.26. Fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "source": "register"
+    },
+    {
       "name": "National Land Survey of Finland",
       "domain": "maanmittauslaitos.fi",
       "category": "Government",
@@ -561,15 +789,6 @@ window.PHP2SHELL_DATA = {
       "status": "offline",
       "note": "Went offline alongside central government services. No restoration report found yet.",
       "source": "startupfortune"
-    },
-    {
-      "name": "Nepal government websites",
-      "domain": "",
-      "category": "Government",
-      "country": "Nepal",
-      "status": "recovering",
-      "note": "Thousands of sites on the shared GIWMS platform were patched centrally and are back; some portals were still inaccessible on 26 Oct.",
-      "source": "kathmandupost"
     },
     {
       "name": "Cineplexx",
