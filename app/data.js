@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-01T12:35:00Z",
-  "updated": "2026-11-01T12:35:00Z",
+  "checked": "2026-11-01T18:35:00Z",
+  "updated": "2026-11-01T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -158,6 +158,14 @@ window.PHP2SHELL_DATA = {
     "kinstablog": {
       "name": "Kinsta",
       "url": "https://kinsta.com/blog/php2shell-patch-rollout"
+    },
+    "meowapps": {
+      "name": "Meow Apps",
+      "url": "https://meowapps.com/php2shell-wordpress/"
+    },
+    "ncscnlgh": {
+      "name": "NCSC-NL (GitHub)",
+      "url": "https://github.com/NCSC-NL/php2shell"
     }
   },
   "sites": [
@@ -819,6 +827,55 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "An EY and risikomonitor.com study found about 1.9 million European sites (5.6%) still vulnerable, with Germany slowest to patch.",
       "source": "trendingey"
+    },
+    {
+      "name": "WP Engine",
+      "domain": "wpengine.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "Said its platform had the PHP fix in place by 22 Oct. Single report.",
+      "source": "meowapps",
+      "unconfirmed": true
+    },
+    {
+      "name": "Rocket.net",
+      "domain": "rocket.net",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "Completed its PHP patch rollout around 23 Oct. Single report.",
+      "source": "meowapps",
+      "unconfirmed": true
+    },
+    {
+      "name": "Liquid Web",
+      "domain": "liquidweb.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "Still patching servers at last report; customers should confirm their PHP version. Single report.",
+      "source": "meowapps",
+      "unconfirmed": true
+    },
+    {
+      "name": "InMotion Hosting (VPS)",
+      "domain": "inmotionhosting.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "VPS servers were still being patched at last report. Single report.",
+      "source": "meowapps",
+      "unconfirmed": true
+    },
+    {
+      "name": "VitalPBX 4.0",
+      "domain": "vitalpbx.com",
+      "category": "Business Software",
+      "country": "Global",
+      "status": "at-risk",
+      "note": "Runs on unpatched PHP 8.1 and is listed as vulnerable as of 30 Oct. VitalPBX 4.5 on PHP 8.2.35 or later is fixed.",
+      "source": "ncscnlgh"
     }
   ]
 };
