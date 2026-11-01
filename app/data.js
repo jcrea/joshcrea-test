@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-01T06:35:00Z",
-  "updated": "2026-10-30T18:39:00Z",
+  "checked": "2026-11-01T12:35:00Z",
+  "updated": "2026-11-01T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -154,6 +154,10 @@ window.PHP2SHELL_DATA = {
     "tuxcare": {
       "name": "TuxCare",
       "url": "https://tuxcare.com/blog/php2shell-cve/"
+    },
+    "kinstablog": {
+      "name": "Kinsta",
+      "url": "https://kinsta.com/blog/php2shell-patch-rollout"
     }
   },
   "sites": [
@@ -463,8 +467,8 @@ window.PHP2SHELL_DATA = {
       "category": "Hosting & Infrastructure",
       "country": "United States",
       "status": "protected",
-      "note": "Temporary protections rolled out; patched PHP follows once validated.",
-      "source": "martincid"
+      "note": "Published an account of its emergency PHP patch rollout and says it found no evidence of successful PHP2Shell breaches on its platform.",
+      "source": "kinstablog"
     },
     {
       "name": "cPanel (EasyApache 4)",
