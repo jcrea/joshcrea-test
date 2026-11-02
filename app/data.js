@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-02T06:36:00Z",
-  "updated": "2026-11-01T18:35:00Z",
+  "checked": "2026-11-02T12:40:00Z",
+  "updated": "2026-11-02T12:40:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -166,6 +166,18 @@ window.PHP2SHELL_DATA = {
     "ncscnlgh": {
       "name": "NCSC-NL (GitHub)",
       "url": "https://github.com/NCSC-NL/php2shell"
+    },
+    "synology": {
+      "name": "Synology",
+      "url": "https://www.synology.com/en-us/company/news/article/php2shell/Synology%20Statement%20on%20PHP2Shell%20Vulnerabilities"
+    },
+    "qnap": {
+      "name": "QNAP",
+      "url": "https://www.qnap.com/en/security-news/2026/qnap-statement-on-critical-php-vulnerabilities-php2shell-assessment-and-mitigation-guidance"
+    },
+    "secweekresp": {
+      "name": "SecurityWeek",
+      "url": "https://www.securityweek.com/tech-and-security-companies-respond-to-php2shell-vulnerabilities/"
     }
   },
   "sites": [
@@ -876,6 +888,33 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "Runs on unpatched PHP 8.1 and is listed as vulnerable as of 30 Oct. VitalPBX 4.5 on PHP 8.2.35 or later is fixed.",
       "source": "ncscnlgh"
+    },
+    {
+      "name": "Synology NAS (DSM)",
+      "domain": "synology.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Taiwan",
+      "status": "protected",
+      "note": "Released PHP updates for DSM 7.2 to 7.4 on 22 Oct. Only PHP-based packages such as WordPress, phpMyAdmin and MediaWiki are affected; update PHP in Package Center.",
+      "source": "synology"
+    },
+    {
+      "name": "QNAP",
+      "domain": "qnap.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Taiwan",
+      "status": "protected",
+      "note": "Said on 22 Oct that protections are in place while it reviews all products and cloud services. Check QNAP's advisory for per-product fixes.",
+      "source": "qnap"
+    },
+    {
+      "name": "SolarWinds Pingdom",
+      "domain": "pingdom.com",
+      "category": "Business Software",
+      "country": "United States",
+      "status": "protected",
+      "note": "Uses PHP but applied compensating controls to the service and its website; customers need take no action.",
+      "source": "secweekresp"
     }
   ]
 };
