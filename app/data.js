@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-02T12:40:00Z",
-  "updated": "2026-11-02T12:40:00Z",
+  "checked": "2026-11-02T18:35:00Z",
+  "updated": "2026-11-02T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -178,6 +178,10 @@ window.PHP2SHELL_DATA = {
     "secweekresp": {
       "name": "SecurityWeek",
       "url": "https://www.securityweek.com/tech-and-security-companies-respond-to-php2shell-vulnerabilities/"
+    },
+    "seconlinelist": {
+      "name": "SecurityOnline",
+      "url": "https://securityonline.info/php2shell-affected-products-list/"
     }
   },
   "sites": [
@@ -915,6 +919,45 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Uses PHP but applied compensating controls to the service and its website; customers need take no action.",
       "source": "secweekresp"
+    },
+    {
+      "name": "Cisco Expressway",
+      "domain": "cisco.com",
+      "category": "Business Software",
+      "country": "United States",
+      "status": "protected",
+      "note": "Fixed in Expressway Select Series 15.5.21. Earlier versions remain exposed until updated.",
+      "source": "ncscnlgh"
+    },
+    {
+      "name": "Check Point firewall web interfaces",
+      "domain": "checkpoint.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Israel",
+      "status": "protected",
+      "note": "Hotfix sk1000302 available for the web interfaces. Install it if your gateway's management portal is reachable. Seen in a third-party patch list.",
+      "source": "seconlinelist",
+      "unconfirmed": true
+    },
+    {
+      "name": "Broadcom Carbon Black App Control",
+      "domain": "broadcom.com",
+      "category": "Business Software",
+      "country": "United States",
+      "status": "protected",
+      "note": "Server fixed in 8.12.2 and 8.13.2. Seen in a third-party patch list.",
+      "source": "seconlinelist",
+      "unconfirmed": true
+    },
+    {
+      "name": "Mitel MiVoice Connect",
+      "domain": "mitel.com",
+      "category": "Business Software",
+      "country": "Canada",
+      "status": "at-risk",
+      "note": "Mitel advisory MISA-2026-0008 offers only a workaround for MiVoice Connect; other Mitel products have fixes. Seen in a third-party patch list.",
+      "source": "seconlinelist",
+      "unconfirmed": true
     }
   ]
 };
