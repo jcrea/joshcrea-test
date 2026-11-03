@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-03T12:35:00Z",
-  "updated": "2026-11-03T12:35:00Z",
+  "checked": "2026-11-03T18:36:00Z",
+  "updated": "2026-11-03T18:36:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -186,6 +186,10 @@ window.PHP2SHELL_DATA = {
     "webproworld": {
       "name": "WebProWorld",
       "url": "https://www.webproworld.com/security/php2shell-vulnerability-sites-offline/"
+    },
+    "registeruk": {
+      "name": "The Register",
+      "url": "https://www.theregister.com/security/2026/10/22/php2shell-puts-dozens-of-uk-government-services-out-of-service/5304840"
     }
   },
   "sites": [
@@ -969,8 +973,8 @@ window.PHP2SHELL_DATA = {
       "category": "Government",
       "country": "United Kingdom",
       "status": "disrupted",
-      "note": "The cybersecurity minister told Parliament 32 government services were taken offline, largely as a precaution. No restoration report found yet.",
-      "source": "webproworld"
+      "note": "Minister told the House of Lords on 22 Oct that 32 services were offline and 4 partly unavailable, largely as a precaution, with no confirmed compromise of central systems. No restoration report found yet.",
+      "source": "registeruk"
     },
     {
       "name": "German city websites",
@@ -980,6 +984,36 @@ window.PHP2SHELL_DATA = {
       "status": "recovering",
       "note": "Mainz, Dresden, Schwerin and Halberstadt were back by 23 Oct, and Munich reported its online services available again.",
       "source": "bitpage"
+    },
+    {
+      "name": "UK council websites",
+      "domain": "",
+      "category": "Government",
+      "country": "United Kingdom",
+      "status": "disrupted",
+      "note": "Edinburgh, Oxford, Bristol, Lambeth and Barnet councils reported disrupted on 22 Oct. No restoration report found yet.",
+      "source": "registeruk",
+      "unconfirmed": true
+    },
+    {
+      "name": "DVLA",
+      "domain": "gov.uk",
+      "category": "Government",
+      "country": "United Kingdom",
+      "status": "disrupted",
+      "note": "Driver and Vehicle Licensing Agency services reported disrupted on 22 Oct. No restoration report found yet.",
+      "source": "registeruk",
+      "unconfirmed": true
+    },
+    {
+      "name": "Office for Budget Responsibility",
+      "domain": "obr.uk",
+      "category": "Government",
+      "country": "United Kingdom",
+      "status": "offline",
+      "note": "Website reported offline on 22 Oct. No restoration report found yet.",
+      "source": "registeruk",
+      "unconfirmed": true
     }
   ]
 };
