@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-03T06:35:00Z",
-  "updated": "2026-11-02T18:35:00Z",
+  "checked": "2026-11-03T12:35:00Z",
+  "updated": "2026-11-03T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -182,6 +182,10 @@ window.PHP2SHELL_DATA = {
     "seconlinelist": {
       "name": "SecurityOnline",
       "url": "https://securityonline.info/php2shell-affected-products-list/"
+    },
+    "webproworld": {
+      "name": "WebProWorld",
+      "url": "https://www.webproworld.com/security/php2shell-vulnerability-sites-offline/"
     }
   },
   "sites": [
@@ -958,6 +962,24 @@ window.PHP2SHELL_DATA = {
       "note": "Mitel advisory MISA-2026-0008 offers only a workaround for MiVoice Connect; other Mitel products have fixes. Seen in a third-party patch list.",
       "source": "seconlinelist",
       "unconfirmed": true
+    },
+    {
+      "name": "UK government services",
+      "domain": "gov.uk",
+      "category": "Government",
+      "country": "United Kingdom",
+      "status": "disrupted",
+      "note": "The cybersecurity minister told Parliament 32 government services were taken offline, largely as a precaution. No restoration report found yet.",
+      "source": "webproworld"
+    },
+    {
+      "name": "German city websites",
+      "domain": "",
+      "category": "Government",
+      "country": "Germany",
+      "status": "recovering",
+      "note": "Mainz, Dresden, Schwerin and Halberstadt were back by 23 Oct, and Munich reported its online services available again.",
+      "source": "bitpage"
     }
   ]
 };
