@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-04T06:36:00Z",
-  "updated": "2026-11-03T18:36:00Z",
+  "checked": "2026-11-04T12:35:00Z",
+  "updated": "2026-11-04T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -190,6 +190,10 @@ window.PHP2SHELL_DATA = {
     "registeruk": {
       "name": "The Register",
       "url": "https://www.theregister.com/security/2026/10/22/php2shell-puts-dozens-of-uk-government-services-out-of-service/5304840"
+    },
+    "borncity": {
+      "name": "Borns IT- und Windows-Blog",
+      "url": "https://borncity.com/blog/2026/11/03/php2shell-webseiten-von-gemeinden-als-sorgenkind/"
     }
   },
   "sites": [
@@ -1014,6 +1018,15 @@ window.PHP2SHELL_DATA = {
       "note": "Website reported offline on 22 Oct. No restoration report found yet.",
       "source": "registeruk",
       "unconfirmed": true
+    },
+    {
+      "name": "German municipal websites",
+      "domain": "",
+      "category": "Government",
+      "country": "Germany",
+      "status": "disrupted",
+      "note": "A 3 Nov survey found 40 of 57 originally affected municipal sites back online and 17 still offline, with 19 more newly found offline.",
+      "source": "borncity"
     }
   ]
 };
