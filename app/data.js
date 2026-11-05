@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-05T06:35:00Z",
-  "updated": "2026-11-05T06:35:00Z",
+  "checked": "2026-11-05T12:35:00Z",
+  "updated": "2026-11-05T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -202,6 +202,10 @@ window.PHP2SHELL_DATA = {
     "happierit": {
       "name": "Happier IT",
       "url": "https://www.happierit.com/breaches/php2shell-php-flaw-canada-websites-offline-2026/"
+    },
+    "globalnews": {
+      "name": "Global News",
+      "url": "https://globalnews.ca/news/12113047/statistics-canada-website-down-php-hacks/"
     }
   },
   "sites": [
@@ -1061,9 +1065,9 @@ window.PHP2SHELL_DATA = {
       "domain": "canada.ca",
       "category": "Government",
       "country": "Canada",
-      "status": "offline",
-      "note": "Some federal sites, including ISED, were taken offline on 21 Oct as a precaution on Cyber Centre advice, to return once fixes were applied. No restoration report found yet.",
-      "source": "cbc"
+      "status": "recovering",
+      "note": "Some federal sites, including ISED, went offline on 21 Oct as a precaution. Statistics Canada was back within hours; officials said some sites could stay down longer and saw no sign of compromise.",
+      "source": "globalnews"
     },
     {
       "name": "Newfoundland and Labrador and PEI government sites",
