@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-04T18:35:00Z",
-  "updated": "2026-11-04T12:35:00Z",
+  "checked": "2026-11-05T00:35:00Z",
+  "updated": "2026-11-05T00:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -1025,8 +1025,28 @@ window.PHP2SHELL_DATA = {
       "category": "Government",
       "country": "Germany",
       "status": "disrupted",
-      "note": "A 3 Nov survey found 40 of 57 originally affected municipal sites back online and 17 still offline, with 19 more newly found offline.",
+      "note": "Of 57 municipal sites taken offline, a 3 Nov survey found 34 to 40 back online and 17 to 19 still showing an outage notice. Reports of the same survey give different figures.",
       "source": "borncity"
+    },
+    {
+      "name": "Hetzner",
+      "domain": "hetzner.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "protected",
+      "note": "Reported to have patched its older PHP 5.6 and 7.3 builds in a host tracker update. Single source.",
+      "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "netcup",
+      "domain": "netcup.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "recovering",
+      "note": "Reported to have brought its hosting plans back online in a host tracker update. Single source.",
+      "source": "bitpage",
+      "unconfirmed": true
     }
   ]
 };
