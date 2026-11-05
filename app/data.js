@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-05T00:35:00Z",
-  "updated": "2026-11-05T00:35:00Z",
+  "checked": "2026-11-05T06:35:00Z",
+  "updated": "2026-11-05T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -194,6 +194,14 @@ window.PHP2SHELL_DATA = {
     "borncity": {
       "name": "Borns IT- und Windows-Blog",
       "url": "https://borncity.com/blog/2026/11/03/php2shell-webseiten-von-gemeinden-als-sorgenkind/"
+    },
+    "cbc": {
+      "name": "CBC News",
+      "url": "https://www.cbc.ca/news/business/canadian-government-sites-down-php-cybersecurity-9.7390368"
+    },
+    "happierit": {
+      "name": "Happier IT",
+      "url": "https://www.happierit.com/breaches/php2shell-php-flaw-canada-websites-offline-2026/"
     }
   },
   "sites": [
@@ -1046,6 +1054,54 @@ window.PHP2SHELL_DATA = {
       "status": "recovering",
       "note": "Reported to have brought its hosting plans back online in a host tracker update. Single source.",
       "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "Government of Canada websites",
+      "domain": "canada.ca",
+      "category": "Government",
+      "country": "Canada",
+      "status": "offline",
+      "note": "Some federal sites, including ISED, were taken offline on 21 Oct as a precaution on Cyber Centre advice, to return once fixes were applied. No restoration report found yet.",
+      "source": "cbc"
+    },
+    {
+      "name": "Newfoundland and Labrador and PEI government sites",
+      "domain": "",
+      "category": "Government",
+      "country": "Canada",
+      "status": "offline",
+      "note": "Provincial sites showed notices citing a global security incident on 21 Oct. No restoration report found yet.",
+      "source": "cbc"
+    },
+    {
+      "name": "Elections BC",
+      "domain": "elections.bc.ca",
+      "category": "Government",
+      "country": "Canada",
+      "status": "offline",
+      "note": "Reported offline as a precaution while patching. No restoration report found yet. Single source.",
+      "source": "happierit",
+      "unconfirmed": true
+    },
+    {
+      "name": "STM (Montreal transit)",
+      "domain": "stm.info",
+      "category": "Government",
+      "country": "Canada",
+      "status": "offline",
+      "note": "Reported to have shut its site during patching. No restoration report found yet. Single source.",
+      "source": "happierit",
+      "unconfirmed": true
+    },
+    {
+      "name": "SAQ",
+      "domain": "saq.com",
+      "category": "E-commerce & Retail",
+      "country": "Canada",
+      "status": "offline",
+      "note": "Quebec's liquor retailer reported to have shut its site during patching. No restoration report found yet. Single source.",
+      "source": "happierit",
       "unconfirmed": true
     }
   ]
