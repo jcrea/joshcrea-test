@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-05T18:35:00Z",
-  "updated": "2026-11-05T12:35:00Z",
+  "checked": "2026-11-06T00:35:00Z",
+  "updated": "2026-11-06T00:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -206,6 +206,10 @@ window.PHP2SHELL_DATA = {
     "globalnews": {
       "name": "Global News",
       "url": "https://globalnews.ca/news/12113047/statistics-canada-website-down-php-hacks/"
+    },
+    "itbrief": {
+      "name": "IT Brief",
+      "url": "https://itbrief.com.au/story/even-the-dark-web-took-php2shell-seriously"
     }
   },
   "sites": [
@@ -1107,6 +1111,15 @@ window.PHP2SHELL_DATA = {
       "note": "Quebec's liquor retailer reported to have shut its site during patching. No restoration report found yet. Single source.",
       "source": "happierit",
       "unconfirmed": true
+    },
+    {
+      "name": "DarkForums",
+      "domain": "",
+      "category": "Forums & Communities",
+      "country": "Global",
+      "status": "offline",
+      "note": "Underground forum went offline, saying it would stay down until PHP has been patched globally (per Tenable).",
+      "source": "itbrief"
     }
   ]
 };
