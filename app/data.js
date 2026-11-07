@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-07T12:35:00Z",
-  "updated": "2026-11-06T00:35:00Z",
+  "checked": "2026-11-07T18:35:00Z",
+  "updated": "2026-11-07T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -210,6 +210,10 @@ window.PHP2SHELL_DATA = {
     "itbrief": {
       "name": "IT Brief",
       "url": "https://itbrief.com.au/story/even-the-dark-web-took-php2shell-seriously"
+    },
+    "wikipedia": {
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/PHP2Shell"
     }
   },
   "sites": [
@@ -1120,6 +1124,16 @@ window.PHP2SHELL_DATA = {
       "status": "offline",
       "note": "Underground forum went offline, saying it would stay down until PHP has been patched globally (per Tenable).",
       "source": "itbrief"
+    },
+    {
+      "name": "Internet Archive",
+      "domain": "archive.org",
+      "category": "Reference & Wikis",
+      "country": "United States",
+      "status": "recovering",
+      "note": "Briefly shut down to fix the issue. Reported in Wikipedia's summary; no direct statement found.",
+      "source": "wikipedia",
+      "unconfirmed": true
     }
   ]
 };
