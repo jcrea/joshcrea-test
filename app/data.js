@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-08T06:35:00Z",
-  "updated": "2026-11-08T06:35:00Z",
+  "checked": "2026-11-08T12:35:00Z",
+  "updated": "2026-11-08T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -362,9 +362,10 @@ window.PHP2SHELL_DATA = {
       "domain": "somethingawful.com",
       "category": "Forums & Communities",
       "country": "United States",
-      "status": "offline",
-      "note": "Forums taken offline as a protective measure.",
-      "source": "htg"
+      "status": "recovering",
+      "note": "Forums shut as a protective measure on 21 Oct; reported back online by 22 Oct. Single report.",
+      "source": "bitpage",
+      "unconfirmed": true
     },
     {
       "name": "4chan",
@@ -1143,18 +1144,20 @@ window.PHP2SHELL_DATA = {
       "domain": "pinboard.in",
       "category": "Business Software",
       "country": "United States",
-      "status": "maintenance",
-      "note": "Bookmarking service went into maintenance over the flaw. No restoration report found yet.",
-      "source": "newsweek"
+      "status": "recovering",
+      "note": "Went into maintenance over the flaw; reported back online by 22 Oct. Single report.",
+      "source": "bitpage",
+      "unconfirmed": true
     },
     {
       "name": "DeviantArt",
       "domain": "deviantart.com",
       "category": "Creative Platforms",
       "country": "United States",
-      "status": "maintenance",
-      "note": "Art community went into maintenance over the flaw. No restoration report found yet.",
-      "source": "newsweek"
+      "status": "recovering",
+      "note": "Went into maintenance over the flaw; reported back online by 22 Oct. Single report.",
+      "source": "bitpage",
+      "unconfirmed": true
     }
   ]
 };
