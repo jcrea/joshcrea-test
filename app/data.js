@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-08T00:35:00Z",
-  "updated": "2026-11-07T18:35:00Z",
+  "checked": "2026-11-08T06:35:00Z",
+  "updated": "2026-11-08T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -214,6 +214,10 @@ window.PHP2SHELL_DATA = {
     "wikipedia": {
       "name": "Wikipedia",
       "url": "https://en.wikipedia.org/wiki/PHP2Shell"
+    },
+    "newsweek": {
+      "name": "Newsweek",
+      "url": "https://www.newsweek.com/php-vunerability-php2shell-issue-websites-hack-server-12601225"
     }
   },
   "sites": [
@@ -1131,9 +1135,26 @@ window.PHP2SHELL_DATA = {
       "category": "Reference & Wikis",
       "country": "United States",
       "status": "recovering",
-      "note": "Briefly shut down to fix the issue. Reported in Wikipedia's summary; no direct statement found.",
-      "source": "wikipedia",
-      "unconfirmed": true
+      "note": "Went into emergency maintenance to fix the issue and is reported back online.",
+      "source": "newsweek"
+    },
+    {
+      "name": "Pinboard",
+      "domain": "pinboard.in",
+      "category": "Business Software",
+      "country": "United States",
+      "status": "maintenance",
+      "note": "Bookmarking service went into maintenance over the flaw. No restoration report found yet.",
+      "source": "newsweek"
+    },
+    {
+      "name": "DeviantArt",
+      "domain": "deviantart.com",
+      "category": "Creative Platforms",
+      "country": "United States",
+      "status": "maintenance",
+      "note": "Art community went into maintenance over the flaw. No restoration report found yet.",
+      "source": "newsweek"
     }
   ]
 };
