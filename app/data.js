@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-10T00:35:00Z",
-  "updated": "2026-11-08T12:35:00Z",
+  "checked": "2026-11-10T06:35:00Z",
+  "updated": "2026-11-10T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -218,6 +218,10 @@ window.PHP2SHELL_DATA = {
     "newsweek": {
       "name": "Newsweek",
       "url": "https://www.newsweek.com/php-vunerability-php2shell-issue-websites-hack-server-12601225"
+    },
+    "php2shellcheck": {
+      "name": "php2shellcheck.com",
+      "url": "https://php2shellcheck.com/status/"
     }
   },
   "sites": [
@@ -1157,6 +1161,26 @@ window.PHP2SHELL_DATA = {
       "status": "recovering",
       "note": "Went into maintenance over the flaw; reported back online by 22 Oct. Single report.",
       "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "DreamHost",
+      "domain": "dreamhost.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "Marked its PHP incident resolved on 23 Oct after installing the fix across its servers. Reported by a fix-status tracker.",
+      "source": "php2shellcheck",
+      "unconfirmed": true
+    },
+    {
+      "name": "NTTPC (WebARENA)",
+      "domain": "web-arena.jp",
+      "category": "Hosting & Infrastructure",
+      "country": "Japan",
+      "status": "recovering",
+      "note": "Restarted WebARENA web pages on 24 Oct; some services stayed down until early November. Reported by a fix-status tracker.",
+      "source": "php2shellcheck",
       "unconfirmed": true
     }
   ]
