@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-11T12:35:00Z",
-  "updated": "2026-11-11T12:35:00Z",
+  "checked": "2026-11-11T18:35:00Z",
+  "updated": "2026-11-11T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -226,6 +226,10 @@ window.PHP2SHELL_DATA = {
     "cutodaynov10": {
       "name": "CU Today",
       "url": "https://www.cutoday.info/Fresh-Today/PHP2Shell-Threat-Continues-As-New-Data-Show-More-Products-Patched-Hundreds-Still-Vulnerable"
+    },
+    "php2shelluk": {
+      "name": "php2shell.uk",
+      "url": "https://php2shell.uk/affected-vendors"
     }
   },
   "sites": [
@@ -1104,9 +1108,9 @@ window.PHP2SHELL_DATA = {
       "domain": "elections.bc.ca",
       "category": "Government",
       "country": "Canada",
-      "status": "offline",
-      "note": "Reported offline as a precaution while patching. No restoration report found yet. Single source.",
-      "source": "happierit",
+      "status": "recovering",
+      "note": "Website went down on 21 Oct and was restored at 3:20 p.m. Pacific; it said none of its systems were breached. Reported by a vendor-statement tracker.",
+      "source": "php2shelluk",
       "unconfirmed": true
     },
     {
@@ -1195,6 +1199,16 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "As of 10 Nov, the Dutch NCSC tracks 968 products: 215 still vulnerable, 205 with fixes and 93 under investigation. Check your vendor's advisory.",
       "source": "cutodaynov10"
+    },
+    {
+      "name": "Alfasado PowerCMS Cloud",
+      "domain": "powercms.jp",
+      "category": "Software Platforms",
+      "country": "Japan",
+      "status": "recovering",
+      "note": "Said on 22 Oct that PowerCMS Cloud had completed the work and resumed service. Reported by a vendor-statement tracker.",
+      "source": "php2shelluk",
+      "unconfirmed": true
     }
   ]
 };
