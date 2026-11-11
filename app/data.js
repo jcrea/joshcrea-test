@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-11T06:35:00Z",
-  "updated": "2026-11-10T06:35:00Z",
+  "checked": "2026-11-11T12:35:00Z",
+  "updated": "2026-11-11T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -222,6 +222,10 @@ window.PHP2SHELL_DATA = {
     "php2shellcheck": {
       "name": "php2shellcheck.com",
       "url": "https://php2shellcheck.com/status/"
+    },
+    "cutodaynov10": {
+      "name": "CU Today",
+      "url": "https://www.cutoday.info/Fresh-Today/PHP2Shell-Threat-Continues-As-New-Data-Show-More-Products-Patched-Hundreds-Still-Vulnerable"
     }
   },
   "sites": [
@@ -1182,6 +1186,15 @@ window.PHP2SHELL_DATA = {
       "note": "Restarted WebARENA web pages on 24 Oct; some services stayed down until early November. Reported by a fix-status tracker.",
       "source": "php2shellcheck",
       "unconfirmed": true
+    },
+    {
+      "name": "Vendor products that bundle PHP",
+      "domain": "",
+      "category": "Software Platforms",
+      "country": "Global",
+      "status": "at-risk",
+      "note": "As of 10 Nov, the Dutch NCSC tracks 968 products: 215 still vulnerable, 205 with fixes and 93 under investigation. Check your vendor's advisory.",
+      "source": "cutodaynov10"
     }
   ]
 };
