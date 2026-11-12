@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-12T12:35:00Z",
-  "updated": "2026-11-11T18:35:00Z",
+  "checked": "2026-11-12T18:36:00Z",
+  "updated": "2026-11-12T18:36:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -230,6 +230,10 @@ window.PHP2SHELL_DATA = {
     "php2shelluk": {
       "name": "php2shell.uk",
       "url": "https://php2shell.uk/affected-vendors"
+    },
+    "ubuntu": {
+      "name": "Ubuntu",
+      "url": "https://ubuntu.com/blog/php2shell-vulnerability-fixes-available"
     }
   },
   "sites": [
@@ -1209,6 +1213,15 @@ window.PHP2SHELL_DATA = {
       "note": "Said on 22 Oct that PowerCMS Cloud had completed the work and resumed service. Reported by a vendor-statement tracker.",
       "source": "php2shelluk",
       "unconfirmed": true
+    },
+    {
+      "name": "Ubuntu",
+      "domain": "ubuntu.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Global",
+      "status": "protected",
+      "note": "Canonical has published fixed PHP packages. Servers need the update installed and PHP restarted.",
+      "source": "ubuntu"
     }
   ]
 };
