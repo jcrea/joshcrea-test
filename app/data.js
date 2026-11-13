@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-13T00:35:00Z",
-  "updated": "2026-11-12T18:36:00Z",
+  "checked": "2026-11-13T06:35:00Z",
+  "updated": "2026-11-13T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -234,6 +234,10 @@ window.PHP2SHELL_DATA = {
     "ubuntu": {
       "name": "Ubuntu",
       "url": "https://ubuntu.com/blog/php2shell-vulnerability-fixes-available"
+    },
+    "slingscore": {
+      "name": "SlingScore",
+      "url": "https://slingscore.com/blog/php2shell-vendor-appliances-third-party-risk/"
     }
   },
   "sites": [
@@ -1222,6 +1226,16 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Canonical has published fixed PHP packages. Servers need the update installed and PHP restarted.",
       "source": "ubuntu"
+    },
+    {
+      "name": "HPE System Management Homepage",
+      "domain": "hpe.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "Reported as a product that will not get a fix. Restrict access or retire it. Reported by a third-party vendor tracker.",
+      "source": "slingscore",
+      "unconfirmed": true
     }
   ]
 };
