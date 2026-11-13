@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-13T06:35:00Z",
-  "updated": "2026-11-13T06:35:00Z",
+  "checked": "2026-11-13T12:35:00Z",
+  "updated": "2026-11-13T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -238,6 +238,14 @@ window.PHP2SHELL_DATA = {
     "slingscore": {
       "name": "SlingScore",
       "url": "https://slingscore.com/blog/php2shell-vendor-appliances-third-party-risk/"
+    },
+    "checkpointblog": {
+      "name": "Check Point",
+      "url": "https://blog.checkpoint.com/security/security-advisory-active-exploitation-of-php2shell-and-local-privilege-escalation/"
+    },
+    "synologysa": {
+      "name": "Synology SA-26:14",
+      "url": "https://www.synology.com/en-uk/support/security/Synology_SA_26_14"
     }
   },
   "sites": [
@@ -956,8 +964,8 @@ window.PHP2SHELL_DATA = {
       "category": "Hosting & Infrastructure",
       "country": "Taiwan",
       "status": "protected",
-      "note": "Released PHP updates for DSM 7.2 to 7.4 on 22 Oct. Only PHP-based packages such as WordPress, phpMyAdmin and MediaWiki are affected; update PHP in Package Center.",
-      "source": "synology"
+      "note": "PHP packages 7.4 to 8.4 are fixed for DSM 7.2 to 7.4; update in Package Center. PHP 7.3 is end of life and will not be fixed, so move anything on it to a newer PHP.",
+      "source": "synologysa"
     },
     {
       "name": "QNAP",
@@ -991,10 +999,9 @@ window.PHP2SHELL_DATA = {
       "domain": "checkpoint.com",
       "category": "Hosting & Infrastructure",
       "country": "Israel",
-      "status": "protected",
-      "note": "Hotfix sk1000302 available for the web interfaces. Install it if your gateway's management portal is reachable. Seen in a third-party patch list.",
-      "source": "seconlinelist",
-      "unconfirmed": true
+      "status": "at-risk",
+      "note": "Attackers exploited PHP2Shell plus a privilege-escalation flaw on unpatched gateways from 30 Oct, in one wave deploying wiper malware. A hotfix has been available since 23 Oct and is in the November Jumbo Hotfix.",
+      "source": "checkpointblog"
     },
     {
       "name": "Broadcom Carbon Black App Control",
