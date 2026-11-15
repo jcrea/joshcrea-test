@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-15T06:36:00Z",
-  "updated": "2026-11-13T12:35:00Z",
+  "checked": "2026-11-15T12:35:00Z",
+  "updated": "2026-11-15T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -246,6 +246,10 @@ window.PHP2SHELL_DATA = {
     "synologysa": {
       "name": "Synology SA-26:14",
       "url": "https://www.synology.com/en-uk/support/security/Synology_SA_26_14"
+    },
+    "csasg": {
+      "name": "CSA Singapore",
+      "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-157/"
     }
   },
   "sites": [
@@ -1243,6 +1247,24 @@ window.PHP2SHELL_DATA = {
       "note": "Reported as a product that will not get a fix. Restrict access or retire it. Reported by a third-party vendor tracker.",
       "source": "slingscore",
       "unconfirmed": true
+    },
+    {
+      "name": "Siemens RUGGEDCOM APE1808",
+      "domain": "siemens.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "at-risk",
+      "note": "Devices running affected PAN-OS versions are exposed (Siemens SSA-566512). PAN-OS management interfaces are being actively exploited, so check Siemens' advisory for fixes.",
+      "source": "csasg"
+    },
+    {
+      "name": "Fortinet FortiSOAR",
+      "domain": "fortinet.com",
+      "category": "Business Software",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "FortiSOAR and FortiSOAR PaaS were added to Fortinet advisory FG-IR-26-186 on 5 Nov. Reports disagree on whether a fix is out; check the advisory.",
+      "source": "csasg"
     }
   ]
 };
