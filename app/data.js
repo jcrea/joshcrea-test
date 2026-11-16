@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-16T06:35:00Z",
-  "updated": "2026-11-16T00:35:00Z",
+  "checked": "2026-11-16T12:35:00Z",
+  "updated": "2026-11-16T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -254,6 +254,10 @@ window.PHP2SHELL_DATA = {
     "braindetoxcisco": {
       "name": "Braindetox (quoting Cisco)",
       "url": "https://braindetox.kr/en/posts/cisco_expressway_hardcoded_credentials_2026_10.html"
+    },
+    "heisecp": {
+      "name": "heise online",
+      "url": "https://www.heise.de/news/Angreifer-verketteten-PHP2Shell-mit-Root-Luecke-auf-Check-Point-Gateways-11525531.html"
     }
   },
   "sites": [
@@ -1009,8 +1013,8 @@ window.PHP2SHELL_DATA = {
       "category": "Hosting & Infrastructure",
       "country": "Israel",
       "status": "at-risk",
-      "note": "Attackers exploited PHP2Shell plus a privilege-escalation flaw on unpatched gateways from 30 Oct, in one wave deploying wiper malware. A hotfix has been available since 23 Oct and is in the November Jumbo Hotfix.",
-      "source": "checkpointblog"
+      "note": "Attackers chained PHP2Shell with a root flaw (CVE-2026-123039) via Mobile Access portals from 30 Oct, in one wave wiping ESXi hosts. Gateways with only the 23 Oct PHP2Shell hotfix are still exposed to the root flaw; install the November Jumbo Hotfix.",
+      "source": "heisecp"
     },
     {
       "name": "Broadcom Carbon Black App Control",
