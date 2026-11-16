@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-15T18:35:00Z",
-  "updated": "2026-11-15T12:35:00Z",
+  "checked": "2026-11-16T00:35:00Z",
+  "updated": "2026-11-16T00:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -250,6 +250,10 @@ window.PHP2SHELL_DATA = {
     "csasg": {
       "name": "CSA Singapore",
       "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-157/"
+    },
+    "braindetoxcisco": {
+      "name": "Braindetox (quoting Cisco)",
+      "url": "https://braindetox.kr/en/posts/cisco_expressway_hardcoded_credentials_2026_10.html"
     }
   },
   "sites": [
@@ -994,9 +998,10 @@ window.PHP2SHELL_DATA = {
       "domain": "cisco.com",
       "category": "Business Software",
       "country": "United States",
-      "status": "protected",
-      "note": "Fixed in Expressway Select Series 15.5.21. Earlier versions remain exposed until updated.",
-      "source": "ncscnlgh"
+      "status": "at-risk",
+      "note": "Cisco's advisory lists Expressway and Expressway Select as affected, with a fix planned for 15.5.21 but no release date yet. Apply the workaround in bug CSCwx37062 meanwhile.",
+      "source": "braindetoxcisco",
+      "unconfirmed": true
     },
     {
       "name": "Check Point firewall web interfaces",
