@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-17T06:35:00Z",
-  "updated": "2026-11-16T12:35:00Z",
+  "checked": "2026-11-17T12:35:00Z",
+  "updated": "2026-11-17T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -1274,6 +1274,46 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "FortiSOAR and FortiSOAR PaaS were added to Fortinet advisory FG-IR-26-186 on 5 Nov. Reports disagree on whether a fix is out; check the advisory.",
       "source": "csasg"
+    },
+    {
+      "name": "all-inkl",
+      "domain": "all-inkl.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "recovering",
+      "note": "Host's own site reported running normally again after the October patching rush. Single report; check the host's status page for customer servers.",
+      "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "Uberspace",
+      "domain": "uberspace.de",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "recovering",
+      "note": "Host's own site reported running normally again after the October patching rush. Single report; check the host's status page for customer servers.",
+      "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "Hostpoint",
+      "domain": "hostpoint.ch",
+      "category": "Hosting & Infrastructure",
+      "country": "Switzerland",
+      "status": "recovering",
+      "note": "Host's own site reported running normally again after the October patching rush. Single report; check the host's status page for customer servers.",
+      "source": "bitpage",
+      "unconfirmed": true
+    },
+    {
+      "name": "Mittwald",
+      "domain": "mittwald.de",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "recovering",
+      "note": "Host's own site reported running normally again after the October patching rush. Single report; check the host's status page for customer servers.",
+      "source": "bitpage",
+      "unconfirmed": true
     }
   ]
 };
