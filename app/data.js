@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-18T12:35:00Z",
-  "updated": "2026-11-18T12:35:00Z",
+  "checked": "2026-11-18T18:35:00Z",
+  "updated": "2026-11-18T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -262,6 +262,10 @@ window.PHP2SHELL_DATA = {
     "heisecpen": {
       "name": "heise online",
       "url": "https://heise.de/en/news/Attackers-chain-PHP2Shell-with-root-flaw-on-Check-Point-gateways-11525544.html"
+    },
+    "secweekics": {
+      "name": "SecurityWeek",
+      "url": "https://www.securityweek.com/industrial-vendors-check-products-for-php2shell-vulnerabilities/"
     }
   },
   "sites": [
@@ -1318,6 +1322,33 @@ window.PHP2SHELL_DATA = {
       "note": "Host's own site reported running normally again after the October patching rush. Single report; check the host's status page for customer servers.",
       "source": "bitpage",
       "unconfirmed": true
+    },
+    {
+      "name": "ABB B&R APROL",
+      "domain": "br-automation.com",
+      "category": "Business Software",
+      "country": "Switzerland",
+      "status": "at-risk",
+      "note": "Industrial process control system affected in versions up to R 4.4-65, per ABB's B&R unit. Check the vendor advisory for fixes.",
+      "source": "secweekics"
+    },
+    {
+      "name": "Wibu-Systems CodeMeter License Central",
+      "domain": "wibu.com",
+      "category": "Business Software",
+      "country": "Germany",
+      "status": "at-risk",
+      "note": "The web interface is affected, per Wibu-Systems. Check the vendor advisory for fixes.",
+      "source": "secweekics"
+    },
+    {
+      "name": "AWS (Elastic Beanstalk, WorkMail, Amazon Linux, Lightsail)",
+      "domain": "aws.amazon.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "recovering",
+      "note": "AWS said it was addressing PHP2Shell in these services. Customer-managed instances still need PHP updated.",
+      "source": "secweekresp"
     }
   ]
 };
