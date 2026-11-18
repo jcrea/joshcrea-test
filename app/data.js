@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-18T06:35:00Z",
-  "updated": "2026-11-17T12:35:00Z",
+  "checked": "2026-11-18T12:35:00Z",
+  "updated": "2026-11-18T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -258,6 +258,10 @@ window.PHP2SHELL_DATA = {
     "heisecp": {
       "name": "heise online",
       "url": "https://www.heise.de/news/Angreifer-verketteten-PHP2Shell-mit-Root-Luecke-auf-Check-Point-Gateways-11525531.html"
+    },
+    "heisecpen": {
+      "name": "heise online",
+      "url": "https://heise.de/en/news/Attackers-chain-PHP2Shell-with-root-flaw-on-Check-Point-gateways-11525544.html"
     }
   },
   "sites": [
@@ -1013,8 +1017,8 @@ window.PHP2SHELL_DATA = {
       "category": "Hosting & Infrastructure",
       "country": "Israel",
       "status": "at-risk",
-      "note": "Attackers chained PHP2Shell with a root flaw (CVE-2026-123039) via Mobile Access portals from 30 Oct, in one wave wiping ESXi hosts. Gateways with only the 23 Oct PHP2Shell hotfix are still exposed to the root flaw; install the November Jumbo Hotfix.",
-      "source": "heisecp"
+      "note": "Attackers chained PHP2Shell with a root flaw (CVE-2026-123039) via Mobile Access portals from 30 Oct, in one case wiping an ESXi host. The November Jumbo Hotfix fixes both but does not remove backdoors already planted, and there is no fix for R81 or R81.10.",
+      "source": "heisecpen"
     },
     {
       "name": "Broadcom Carbon Black App Control",
