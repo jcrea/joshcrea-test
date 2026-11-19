@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-19T00:35:00Z",
-  "updated": "2026-11-18T18:35:00Z",
+  "checked": "2026-11-19T06:35:00Z",
+  "updated": "2026-11-19T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -266,6 +266,10 @@ window.PHP2SHELL_DATA = {
     "secweekics": {
       "name": "SecurityWeek",
       "url": "https://www.securityweek.com/industrial-vendors-check-products-for-php2shell-vulnerabilities/"
+    },
+    "socradarcamp": {
+      "name": "SOCRadar",
+      "url": "https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/"
     }
   },
   "sites": [
@@ -899,8 +903,8 @@ window.PHP2SHELL_DATA = {
       "category": "Software Platforms",
       "country": "Global",
       "status": "at-risk",
-      "note": "Added to CISA's exploited-vulnerabilities list on 26 Oct, with a federal deadline of 29 Oct. Successful shell execution seen on honeypots running PHP 8.4.26. Fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
-      "source": "register"
+      "note": "On CISA's exploited list since 26 Oct. A credential-harvesting campaign compromised about 400 of 595 targeted servers in 57 countries, gaining root on 12. Fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "source": "socradarcamp"
     },
     {
       "name": "National Land Survey of Finland",
