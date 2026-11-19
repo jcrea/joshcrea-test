@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-19T12:35:00Z",
-  "updated": "2026-11-19T06:35:00Z",
+  "checked": "2026-11-19T18:35:00Z",
+  "updated": "2026-11-19T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -270,6 +270,10 @@ window.PHP2SHELL_DATA = {
     "socradarcamp": {
       "name": "SOCRadar",
       "url": "https://socradar.io/blog/php2shell-ai-agents-credential-harvesting/"
+    },
+    "thnnov19": {
+      "name": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html"
     }
   },
   "sites": [
@@ -903,8 +907,8 @@ window.PHP2SHELL_DATA = {
       "category": "Software Platforms",
       "country": "Global",
       "status": "at-risk",
-      "note": "On CISA's exploited list since 26 Oct. A credential-harvesting campaign compromised about 400 of 595 targeted servers in 57 countries, gaining root on 12. Fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
-      "source": "socradarcamp"
+      "note": "On CISA's exploited list since 26 Oct; one campaign compromised about 400 servers. PHP2Shell is fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35, but a 19 Nov release fixing 7 more critical flaws (incl. CVE-2026-115560) means you should now run 8.5.13, 8.4.28, 8.3.37, 8.2.36 or 8.6.0.",
+      "source": "thnnov19"
     },
     {
       "name": "National Land Survey of Finland",
