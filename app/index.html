@@ -201,7 +201,7 @@ footer p { margin: 0; max-width: 72ch; }
     <h1>PHP2Shell Impact Tracker</h1>
     <p class="lede">Which websites went dark, which are under emergency maintenance, and which platforms are still exposed to the two critical PHP flaws. Search for a company or filter by business category.</p>
     <dl class="advisory">
-      <div><dt>Fixed in</dt><dd><code>8.5.12 · 8.4.27 · 8.3.36 · 8.2.35</code></dd></div>
+      <div><dt>Fixed in</dt><dd><code>8.5.13 · 8.4.28 · 8.3.37 · 8.2.36</code> (19 Nov). The 21 Oct releases left one flaw partly open.</dd></div>
       <div><dt>No official fix</dt><dd>PHP 8.1 and older. Rely on distro backports or upgrade.</dd></div>
       <div><dt>Affected setups</dt><dd>PHP-FPM, mod_php, php-cgi, FrankenPHP, LiteSpeed</dd></div>
       <div><dt>After patching</dt><dd>Restart PHP-FPM or Apache. Serve HTTP 503 while down.</dd></div>
@@ -338,7 +338,8 @@ $("q").addEventListener("input", e => { state.q = e.target.value.trim(); render(
 $("reset").addEventListener("click", () => { state.q = ""; state.cat = null; state.status = null; $("q").value = ""; render(); });
 
 // PHP version checker
-const FIXED = { "8.2": 35, "8.3": 36, "8.4": 27, "8.5": 12 };
+// 19 Nov 2026 releases; the 21 Oct fix for CVE-2026-109619 was incomplete (CVE-2026-129481)
+const FIXED = { "8.2": 36, "8.3": 37, "8.4": 28, "8.5": 13 };
 function checkVersion(raw) {
   const m = raw.trim().match(/^(\d+)\.(\d+)(?:\.(\d+))?/);
   if (!m) return { s: "disrupted", t: "Enter a version like <strong>8.3.14</strong>. Run <code>php -v</code> to find yours." };

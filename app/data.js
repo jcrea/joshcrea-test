@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-20T06:36:00Z",
-  "updated": "2026-11-19T18:35:00Z",
+  "checked": "2026-11-20T12:35:00Z",
+  "updated": "2026-11-20T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -274,6 +274,10 @@ window.PHP2SHELL_DATA = {
     "thnnov19": {
       "name": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html"
+    },
+    "secweeknov19": {
+      "name": "SecurityWeek",
+      "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/"
     }
   },
   "sites": [
@@ -907,8 +911,8 @@ window.PHP2SHELL_DATA = {
       "category": "Software Platforms",
       "country": "Global",
       "status": "at-risk",
-      "note": "On CISA's exploited list since 26 Oct; one campaign compromised about 400 servers. PHP2Shell is fixed in 8.5.12, 8.4.27, 8.3.36 and 8.2.35, but a 19 Nov release fixing 7 more critical flaws (incl. CVE-2026-115560) means you should now run 8.5.13, 8.4.28, 8.3.37, 8.2.36 or 8.6.0.",
-      "source": "thnnov19"
+      "note": "On CISA's exploited list since 26 Oct; one campaign compromised about 400 servers. The 21 Oct fix for CVE-2026-109619 was incomplete (CVE-2026-129481), so run the 19 Nov releases: 8.5.13, 8.4.28, 8.3.37, 8.2.36 or 8.6.0.",
+      "source": "secweeknov19"
     },
     {
       "name": "National Land Survey of Finland",
