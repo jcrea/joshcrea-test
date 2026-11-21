@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-21T00:35:00Z",
-  "updated": "2026-11-21T00:35:00Z",
+  "checked": "2026-11-21T06:35:00Z",
+  "updated": "2026-11-21T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -282,6 +282,10 @@ window.PHP2SHELL_DATA = {
     "mariusphpafter": {
       "name": "Marius Hosting",
       "url": "https://mariushosting.com/synology-mitigating-phpaftershell-cve-2026-126714/"
+    },
+    "socradarafter": {
+      "name": "SOCRadar",
+      "url": "https://socradar.io/blog/phpaftershell-cve-2026-126714-php2shell/"
     }
   },
   "sites": [
@@ -1268,9 +1272,10 @@ window.PHP2SHELL_DATA = {
       "domain": "ubuntu.com",
       "category": "Hosting & Infrastructure",
       "country": "Global",
-      "status": "protected",
-      "note": "Canonical has published fixed PHP packages. Servers need the update installed and PHP restarted.",
-      "source": "ubuntu"
+      "status": "at-risk",
+      "note": "Shipped PHP2Shell fixes in October, but had not yet shipped packages for phpAfterShell (CVE-2026-126714), which bypasses that fix, as of 19 Nov. Watch for updated PHP packages.",
+      "source": "socradarafter",
+      "unconfirmed": true
     },
     {
       "name": "HPE System Management Homepage",
