@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-21T06:35:00Z",
-  "updated": "2026-11-21T06:35:00Z",
+  "checked": "2026-11-21T12:35:00Z",
+  "updated": "2026-11-21T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -286,6 +286,10 @@ window.PHP2SHELL_DATA = {
     "socradarafter": {
       "name": "SOCRadar",
       "url": "https://socradar.io/blog/phpaftershell-cve-2026-126714-php2shell/"
+    },
+    "gpsdebian": {
+      "name": "GetPageSpeed",
+      "url": "https://www.getpagespeed.com/server-setup/php/phpaftershell-on-ubuntu-debian/amp"
     }
   },
   "sites": [
@@ -1371,6 +1375,16 @@ window.PHP2SHELL_DATA = {
       "status": "recovering",
       "note": "AWS said it was addressing PHP2Shell in these services. Customer-managed instances still need PHP updated.",
       "source": "secweekresp"
+    },
+    {
+      "name": "Debian",
+      "domain": "debian.org",
+      "category": "Hosting & Infrastructure",
+      "country": "Global",
+      "status": "protected",
+      "note": "Debian 12 and 13 have security packages fixing phpAfterShell (e.g. DSA-6641-1). Testing and unstable were reported unfixed. Restart PHP after updating.",
+      "source": "gpsdebian",
+      "unconfirmed": true
     }
   ]
 };
