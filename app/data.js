@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-20T18:35:00Z",
-  "updated": "2026-11-20T12:35:00Z",
+  "checked": "2026-11-21T00:35:00Z",
+  "updated": "2026-11-21T00:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -278,6 +278,10 @@ window.PHP2SHELL_DATA = {
     "secweeknov19": {
       "name": "SecurityWeek",
       "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/"
+    },
+    "mariusphpafter": {
+      "name": "Marius Hosting",
+      "url": "https://mariushosting.com/synology-mitigating-phpaftershell-cve-2026-126714/"
     }
   },
   "sites": [
@@ -995,9 +999,10 @@ window.PHP2SHELL_DATA = {
       "domain": "synology.com",
       "category": "Hosting & Infrastructure",
       "country": "Taiwan",
-      "status": "protected",
-      "note": "PHP packages 7.4 to 8.4 are fixed for DSM 7.2 to 7.4; update in Package Center. PHP 7.3 is end of life and will not be fixed, so move anything on it to a newer PHP.",
-      "source": "synologysa"
+      "status": "at-risk",
+      "note": "Patched PHP2Shell on 22 Oct, but phpAfterShell (CVE-2026-126714, 19 Nov) bypasses that fix and Synology had not yet published an update. Turn off session upload progress meanwhile. PHP 7.3 will not be fixed.",
+      "source": "mariusphpafter",
+      "unconfirmed": true
     },
     {
       "name": "QNAP",
