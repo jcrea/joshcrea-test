@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-22T00:35:00Z",
-  "updated": "2026-11-21T12:35:00Z",
+  "checked": "2026-11-22T06:35:00Z",
+  "updated": "2026-11-22T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -290,6 +290,14 @@ window.PHP2SHELL_DATA = {
     "gpsdebian": {
       "name": "GetPageSpeed",
       "url": "https://www.getpagespeed.com/server-setup/php/phpaftershell-on-ubuntu-debian/amp"
+    },
+    "tkcnta": {
+      "name": "TKC",
+      "url": "https://tkc.jp/consolidate/tkc_express/2026/10/202610_14348"
+    },
+    "agenzianova": {
+      "name": "Agenzia Nova",
+      "url": "https://www.agenzianova.com/en/news/Some-Japanese-government-websites-suspended-due-to-PHP-vulnerabilities./"
     }
   },
   "sites": [
@@ -1385,6 +1393,24 @@ window.PHP2SHELL_DATA = {
       "note": "Debian 12 and 13 have security packages fixing phpAfterShell (e.g. DSA-6641-1). Testing and unstable were reported unfixed. Restart PHP after updating.",
       "source": "gpsdebian",
       "unconfirmed": true
+    },
+    {
+      "name": "National Tax Agency (Japan)",
+      "domain": "nta.go.jp",
+      "category": "Government",
+      "country": "Japan",
+      "status": "recovering",
+      "note": "Suspended parts of its website around 22 Oct for PHP vulnerability checks, then announced it had resumed.",
+      "source": "tkcnta"
+    },
+    {
+      "name": "Japanese ministries (Finance, Land/Transport)",
+      "domain": "",
+      "category": "Government",
+      "country": "Japan",
+      "status": "disrupted",
+      "note": "Ministry of Finance and Ministry of Land, Infrastructure, Transport and Tourism temporarily suspended some website functions for emergency checks in late October. No restoration report found yet.",
+      "source": "agenzianova"
     }
   ]
 };
