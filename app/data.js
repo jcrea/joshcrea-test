@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-22T12:35:00Z",
-  "updated": "2026-11-22T06:35:00Z",
+  "checked": "2026-11-22T18:35:00Z",
+  "updated": "2026-11-22T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -298,6 +298,10 @@ window.PHP2SHELL_DATA = {
     "agenzianova": {
       "name": "Agenzia Nova",
       "url": "https://www.agenzianova.com/en/news/Some-Japanese-government-websites-suspended-due-to-PHP-vulnerabilities./"
+    },
+    "hostney": {
+      "name": "Hostney",
+      "url": "https://www.hostney.com/blog/php-november-2026-security-release-explained"
     }
   },
   "sites": [
@@ -1411,6 +1415,15 @@ window.PHP2SHELL_DATA = {
       "status": "disrupted",
       "note": "Ministry of Finance and Ministry of Land, Infrastructure, Transport and Tourism temporarily suspended some website functions for emergency checks in late October. No restoration report found yet.",
       "source": "agenzianova"
+    },
+    {
+      "name": "Hostney",
+      "domain": "hostney.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Global",
+      "status": "protected",
+      "note": "Says it rebuilt its PHP images with the 19 Nov releases (covering phpAfterShell) and rolled them out to every server.",
+      "source": "hostney"
     }
   ]
 };
