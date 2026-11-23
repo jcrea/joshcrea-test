@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-23T06:36:00Z",
-  "updated": "2026-11-22T18:35:00Z",
+  "checked": "2026-11-23T12:35:00Z",
+  "updated": "2026-11-23T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -302,6 +302,10 @@ window.PHP2SHELL_DATA = {
     "hostney": {
       "name": "Hostney",
       "url": "https://www.hostney.com/blog/php-november-2026-security-release-explained"
+    },
+    "webhostingtoday": {
+      "name": "Webhosting.today",
+      "url": "https://webhosting.today/2026/11/19/php-patches-7-critical-flaws-a-month-after-php2shell/"
     }
   },
   "sites": [
@@ -1424,6 +1428,16 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Says it rebuilt its PHP images with the 19 Nov releases (covering phpAfterShell) and rolled them out to every server.",
       "source": "hostney"
+    },
+    {
+      "name": "Plesk",
+      "domain": "plesk.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Switzerland",
+      "status": "at-risk",
+      "note": "Plans to backport the 19 Nov PHP fixes to its PHP 8.1, 8.0 and 7.4 builds, which PHP no longer supports. Servers on those builds stay exposed until the backports ship. Single report; no Plesk advisory found yet.",
+      "source": "webhostingtoday",
+      "unconfirmed": true
     }
   ]
 };
