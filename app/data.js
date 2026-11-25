@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-24T18:35:00Z",
-  "updated": "2026-11-23T12:35:00Z",
+  "checked": "2026-11-25T00:36:00Z",
+  "updated": "2026-11-25T00:36:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -306,6 +306,10 @@ window.PHP2SHELL_DATA = {
     "webhostingtoday": {
       "name": "Webhosting.today",
       "url": "https://webhosting.today/2026/11/19/php-patches-7-critical-flaws-a-month-after-php2shell/"
+    },
+    "em360": {
+      "name": "EM360Tech",
+      "url": "https://em360tech.com/tech-articles/critical-php-vulnerabilities-explained"
     }
   },
   "sites": [
@@ -1438,6 +1442,15 @@ window.PHP2SHELL_DATA = {
       "note": "Plans to backport the 19 Nov PHP fixes to its PHP 8.1, 8.0 and 7.4 builds, which PHP no longer supports. Servers on those builds stay exposed until the backports ship. Single report; no Plesk advisory found yet.",
       "source": "webhostingtoday",
       "unconfirmed": true
+    },
+    {
+      "name": "EM360Tech",
+      "domain": "em360tech.com",
+      "category": "News & Media",
+      "country": "United Kingdom",
+      "status": "recovering",
+      "note": "Says it took its website offline temporarily as a precaution while its team worked through the flaws. The site is back up; it has not said it is patched.",
+      "source": "em360"
     }
   ]
 };
