@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-26T12:35:00Z",
-  "updated": "2026-11-25T00:36:00Z",
+  "checked": "2026-11-26T18:35:00Z",
+  "updated": "2026-11-26T18:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -310,6 +310,10 @@ window.PHP2SHELL_DATA = {
     "em360": {
       "name": "EM360Tech",
       "url": "https://em360tech.com/tech-articles/critical-php-vulnerabilities-explained"
+    },
+    "godaddy": {
+      "name": "GoDaddy",
+      "url": "https://godaddy.com/resources/news/important-php-security-update-what-website-owners-need-to-do"
     }
   },
   "sites": [
@@ -1451,6 +1455,15 @@ window.PHP2SHELL_DATA = {
       "status": "recovering",
       "note": "Says it took its website offline temporarily as a precaution while its team worked through the flaws. The site is back up; it has not said it is patched.",
       "source": "em360"
+    },
+    {
+      "name": "GoDaddy",
+      "domain": "godaddy.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "Patched all PHP versions on Managed WordPress by 21 Oct and on Windows Hosting by 22 Oct; says customers need take no action. Covers the October fixes; no word yet on the 19 Nov release.",
+      "source": "godaddy"
     }
   ]
 };
