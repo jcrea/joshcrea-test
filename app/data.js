@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-27T06:35:00Z",
-  "updated": "2026-11-27T06:35:00Z",
+  "checked": "2026-11-27T12:35:00Z",
+  "updated": "2026-11-27T12:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -322,6 +322,10 @@ window.PHP2SHELL_DATA = {
     "hostingernov": {
       "name": "Hostinger",
       "url": "https://www.hostinger.com/blog/?p=11155"
+    },
+    "namecheap": {
+      "name": "Namecheap status",
+      "url": "https://www.namecheap.com/status-updates/ongoing-php-security-vulnerability-affecting-hosting-services-october-21-2026/"
     }
   },
   "sites": [
@@ -1490,6 +1494,15 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "Deployed protections against PHP2Shell in October. On 19 Nov said it would install the new PHP fixes once CloudLinux packages arrive; no completion notice found yet. VPS customers patch PHP themselves.",
       "source": "hostingernov"
+    },
+    {
+      "name": "Namecheap Hosting",
+      "domain": "namecheap.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "at-risk",
+      "note": "On 21 Oct said it was installing fixed PHP builds across its platform; VPS and dedicated customers must update PHP themselves. Its status notice is still marked ongoing, with no completion update found.",
+      "source": "namecheap"
     }
   ]
 };
