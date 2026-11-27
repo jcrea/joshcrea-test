@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-27T00:36:00Z",
-  "updated": "2026-11-27T00:36:00Z",
+  "checked": "2026-11-27T06:35:00Z",
+  "updated": "2026-11-27T06:35:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -318,6 +318,10 @@ window.PHP2SHELL_DATA = {
     "inmotion": {
       "name": "InMotion Hosting",
       "url": "https://www.inmotionhosting.com/support/news/php-critical-security-release-october-2026/"
+    },
+    "hostingernov": {
+      "name": "Hostinger",
+      "url": "https://www.hostinger.com/blog/?p=11155"
     }
   },
   "sites": [
@@ -1477,6 +1481,15 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Says patched PHP builds were installed on Shared, Reseller, WordPress, Dedicated and UltraStack ONE servers by 22 Oct. Covers the October fixes; VPS is listed separately.",
       "source": "inmotion"
+    },
+    {
+      "name": "Hostinger",
+      "domain": "hostinger.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Lithuania",
+      "status": "at-risk",
+      "note": "Deployed protections against PHP2Shell in October. On 19 Nov said it would install the new PHP fixes once CloudLinux packages arrive; no completion notice found yet. VPS customers patch PHP themselves.",
+      "source": "hostingernov"
     }
   ]
 };
