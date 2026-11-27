@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-26T18:35:00Z",
-  "updated": "2026-11-26T18:35:00Z",
+  "checked": "2026-11-27T00:36:00Z",
+  "updated": "2026-11-27T00:36:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -314,6 +314,10 @@ window.PHP2SHELL_DATA = {
     "godaddy": {
       "name": "GoDaddy",
       "url": "https://godaddy.com/resources/news/important-php-security-update-what-website-owners-need-to-do"
+    },
+    "inmotion": {
+      "name": "InMotion Hosting",
+      "url": "https://www.inmotionhosting.com/support/news/php-critical-security-release-october-2026/"
     }
   },
   "sites": [
@@ -1464,6 +1468,15 @@ window.PHP2SHELL_DATA = {
       "status": "protected",
       "note": "Patched all PHP versions on Managed WordPress by 21 Oct and on Windows Hosting by 22 Oct; says customers need take no action. Covers the October fixes; no word yet on the 19 Nov release.",
       "source": "godaddy"
+    },
+    {
+      "name": "InMotion Hosting (shared & managed)",
+      "domain": "inmotionhosting.com",
+      "category": "Hosting & Infrastructure",
+      "country": "United States",
+      "status": "protected",
+      "note": "Says patched PHP builds were installed on Shared, Reseller, WordPress, Dedicated and UltraStack ONE servers by 22 Oct. Covers the October fixes; VPS is listed separately.",
+      "source": "inmotion"
     }
   ]
 };
