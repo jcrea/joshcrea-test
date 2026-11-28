@@ -1,7 +1,7 @@
 // PHP2Shell tracker dataset. Edited by the scheduled update job; see app/UPDATING.md.
 window.PHP2SHELL_DATA = {
-  "checked": "2026-11-28T00:35:00Z",
-  "updated": "2026-11-27T12:35:00Z",
+  "checked": "2026-11-28T06:36:00Z",
+  "updated": "2026-11-28T06:36:00Z",
   "sources": {
     "record": {
       "name": "The Record",
@@ -326,6 +326,10 @@ window.PHP2SHELL_DATA = {
     "namecheap": {
       "name": "Namecheap status",
       "url": "https://www.namecheap.com/status-updates/ongoing-php-security-vulnerability-affecting-hosting-services-october-21-2026/"
+    },
+    "zaphosting": {
+      "name": "ZAP-Hosting",
+      "url": "https://zap-hosting.com/en/blog/2026/10/critical-php-vulnerabilities-patched-in-30-minutes/"
     }
   },
   "sites": [
@@ -1503,6 +1507,15 @@ window.PHP2SHELL_DATA = {
       "status": "at-risk",
       "note": "On 21 Oct said it was installing fixed PHP builds across its platform; VPS and dedicated customers must update PHP themselves. Its status notice is still marked ongoing, with no completion update found.",
       "source": "namecheap"
+    },
+    {
+      "name": "ZAP-Hosting",
+      "domain": "zap-hosting.com",
+      "category": "Hosting & Infrastructure",
+      "country": "Germany",
+      "status": "protected",
+      "note": "Says it patched its PHP hosting less than 30 minutes after the 21 Oct release. Covers the October fixes.",
+      "source": "zaphosting"
     }
   ]
 };
